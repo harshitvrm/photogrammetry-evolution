@@ -1,0 +1,451 @@
+[
+  {
+    "id": "sift",
+    "year": 1999,
+    "yearLabel": "1999 – 2004",
+    "title": "SIFT — Scale-Invariant Feature Transform",
+    "period": "automated-reconstruction",
+    "category": "geometric-vision",
+    "type": "algorithm",
+    "status": "established",
+    "researchers": ["David G. Lowe"],
+    "institutions": ["University of British Columbia"],
+    "summary": "Local features invariant to scale and rotation, with distinctive descriptors that can be matched across very different photographs.",
+    "context": "Lowe introduced SIFT for object recognition (ICCV 1999) and published the full method in IJCV (2004), one of the most cited papers in computer science.",
+    "contribution": "Made wide-baseline matching between unordered, uncalibrated photographs reliable — the missing piece for fully automatic Structure from Motion.",
+    "technicalExplanation": "Keypoints are extrema of a difference-of-Gaussians scale space; each receives a canonical orientation and a 128-D descriptor of gradient-orientation histograms. Matches are found by nearest-neighbour search with a ratio test.",
+    "historicalSignificance": "Ended the dependence on small baselines and on manual tie points. Photo Tourism, Building Rome in a Day, VisualSFM and COLMAP all rely on SIFT or its descendants.",
+    "limitations": "Patented until 2020; computationally expensive; struggles with strong illumination change and repetitive texture.",
+    "dates": { "invention": "1999", "publication": "ICCV 1999; IJCV 2004", "adoption": "Standard in SfM 2006–2020", "improvements": "SURF (2006), ORB (2011), RootSIFT (2012), learned features (2018–)" },
+    "uncertainty": "",
+    "enabledDevelopments": [
+      { "id": "photo-tourism", "relation": "enables" },
+      { "id": "learned-matching", "relation": "reinterprets" }
+    ],
+    "relatedEvents": ["interest-operators", "ransac", "photo-tourism"],
+    "references": [
+      { "title": "Object recognition from local scale-invariant features", "authors": "David G. Lowe", "year": 1999, "venue": "ICCV 1999", "url": "https://doi.org/10.1109/ICCV.1999.790410", "type": "research-paper" },
+      { "title": "Distinctive image features from scale-invariant keypoints", "authors": "David G. Lowe", "year": 2004, "venue": "International Journal of Computer Vision 60(2), 91–110", "url": "https://doi.org/10.1023/B:VISI.0000029664.99615.94", "type": "research-paper" }
+    ],
+    "media": { "type": "diagram", "diagram": "features", "caption": "Scale-invariant keypoints with characteristic scale and orientation." }
+  },
+  {
+    "id": "ewa-splatting",
+    "year": 2001,
+    "yearLabel": "1990 – 2001",
+    "title": "Splatting and EWA surface splatting",
+    "period": "automated-reconstruction",
+    "category": "point-based",
+    "type": "algorithm",
+    "status": "established",
+    "researchers": ["Lee Westover", "Matthias Zwicker", "Hanspeter Pfister", "Jeroen van Baar", "Markus Gross"],
+    "institutions": ["UNC Chapel Hill", "ETH Zürich", "MERL"],
+    "summary": "Rendering volumes and point sets by projecting ('splatting') reconstruction kernels onto the image, with Gaussian kernels for anti-aliasing.",
+    "context": "Westover introduced splatting for volume rendering (1990). Zwicker et al. (2001) formulated elliptical weighted average (EWA) splatting of Gaussian kernels for high-quality point-based surface rendering.",
+    "contribution": "Derived how a 3D Gaussian kernel projects to a 2D Gaussian under a locally affine camera approximation — the exact projection used by 3D Gaussian Splatting.",
+    "technicalExplanation": "A 3D Gaussian with covariance Σ projects to an image-space Gaussian with covariance Σ′ = J W Σ Wᵀ Jᵀ (W view transform, J Jacobian of projection). Splats are blended in depth order.",
+    "historicalSignificance": "A graphics lineage that, two decades later, became central to reconstruction when Kerbl et al. made splatting differentiable and optimised the Gaussians from photographs.",
+    "limitations": "Points were inputs from scanners, not optimised; no view-dependent appearance learning.",
+    "dates": { "invention": "1990 (splatting); 2001 (EWA surface splatting)", "publication": "SIGGRAPH 1990; SIGGRAPH 2001", "adoption": "Point-based graphics 2000s", "improvements": "Differentiable point rendering (2019–); 3DGS (2023)" },
+    "uncertainty": "",
+    "enabledDevelopments": [
+      { "id": "3dgs", "relation": "foundation" }
+    ],
+    "relatedEvents": ["volume-rendering-optics", "3dgs"],
+    "references": [
+      { "title": "Footprint evaluation for volume rendering", "authors": "Lee Westover", "year": 1990, "venue": "SIGGRAPH 1990", "url": "https://doi.org/10.1145/97880.97919", "type": "research-paper" },
+      { "title": "Surface splatting", "authors": "M. Zwicker, H. Pfister, J. van Baar, M. Gross", "year": 2001, "venue": "SIGGRAPH 2001", "url": "https://doi.org/10.1145/383259.383300", "type": "research-paper" }
+    ],
+    "media": { "type": "diagram", "diagram": "gaussians", "caption": "Elliptical Gaussian kernels projected and blended on the image plane." }
+  },
+  {
+    "id": "sgm",
+    "year": 2005,
+    "yearLabel": "2005 – 2008",
+    "title": "Semi-Global Matching",
+    "period": "automated-reconstruction",
+    "category": "dense",
+    "type": "algorithm",
+    "status": "established",
+    "researchers": ["Heiko Hirschmüller"],
+    "institutions": ["German Aerospace Center (DLR)"],
+    "summary": "Dense stereo by aggregating matching costs along multiple 1D paths — accurate, efficient and robust.",
+    "context": "Published at CVPR 2005 and in TPAMI 2008, SGM was quickly adopted in aerial photogrammetry (dense DSMs from digital aerial imagery), automotive stereo and satellite mapping.",
+    "contribution": "Brought near-global-optimisation quality to pixel-wise dense matching at practical cost.",
+    "technicalExplanation": "A cost volume C(p, d) (e.g. mutual information or Census) is smoothed by dynamic programming along 8–16 directions with penalties P1 (small disparity changes) and P2 (discontinuities); disparities are chosen by winner-takes-all on the summed costs.",
+    "historicalSignificance": "Arguably the most influential dense matcher in production photogrammetry; it turned digital aerial blocks into dense surface models and true orthophotos.",
+    "limitations": "Streaking artefacts; struggles with textureless and reflective surfaces.",
+    "dates": { "invention": "2005", "publication": "CVPR 2005; TPAMI 2008", "adoption": "Aerial DSM production c. 2008–; automotive stereo", "improvements": "tSGM, MGM; learned costs (MC-CNN, 2015)" },
+    "uncertainty": "",
+    "enabledDevelopments": [
+      { "id": "sfm-in-practice", "relation": "enables" },
+      { "id": "deep-depth", "relation": "parallel" }
+    ],
+    "relatedEvents": ["image-matching", "marr-poggio-stereo", "pmvs"],
+    "references": [
+      { "title": "Stereo processing by semiglobal matching and mutual information", "authors": "Heiko Hirschmüller", "year": 2008, "venue": "IEEE TPAMI 30(2), 328–341", "url": "https://doi.org/10.1109/TPAMI.2007.1166", "type": "research-paper" }
+    ],
+    "media": { "type": "diagram", "diagram": "matching", "caption": "Cost aggregation along multiple scanline directions." }
+  },
+  {
+    "id": "photo-tourism",
+    "year": 2006,
+    "yearLabel": "2006 – 2008",
+    "title": "Photo Tourism and Bundler",
+    "period": "automated-reconstruction",
+    "category": "geometric-vision",
+    "type": "research-paper",
+    "status": "established",
+    "researchers": ["Noah Snavely", "Steven M. Seitz", "Richard Szeliski"],
+    "institutions": ["University of Washington", "Microsoft Research"],
+    "summary": "Fully automatic Structure from Motion on unordered internet photo collections, with an interface to browse photos in 3D.",
+    "context": "Presented at SIGGRAPH 2006 and commercialised as Microsoft Photosynth; the open-source Bundler implementation (2008) spread incremental SfM throughout research.",
+    "contribution": "Combined SIFT matching, robust two-view geometry, incremental camera registration and repeated bundle adjustment into a robust pipeline for uncontrolled imagery.",
+    "technicalExplanation": "Pairwise SIFT matching → RANSAC-verified fundamental matrices → track building → initial pair reconstruction → incremental resection (DLT/P3P) and triangulation → bundle adjustment after each addition. Focal lengths are initialised from EXIF.",
+    "historicalSignificance": "Demonstrated that the camera network need not be designed: geometry can be recovered from whatever images exist.",
+    "limitations": "Quadratic matching cost; drift; no metric scale without control.",
+    "dates": { "invention": "2005–2006", "publication": "SIGGRAPH 2006; IJCV 2008", "adoption": "Photosynth (2008); research standard", "improvements": "Building Rome in a Day (2009); VisualSFM (2011); COLMAP (2016)" },
+    "uncertainty": "",
+    "enabledDevelopments": [
+      { "id": "building-rome", "relation": "extends" },
+      { "id": "visualsfm", "relation": "extends" },
+      { "id": "pmvs", "relation": "enables" }
+    ],
+    "relatedEvents": ["sift", "bundle-adjustment-cv", "colmap"],
+    "references": [
+      { "title": "Photo tourism: exploring photo collections in 3D", "authors": "N. Snavely, S. M. Seitz, R. Szeliski", "year": 2006, "venue": "ACM Transactions on Graphics 25(3), SIGGRAPH 2006", "url": "https://doi.org/10.1145/1141911.1141964", "type": "research-paper" },
+      { "title": "Modeling the world from Internet photo collections", "authors": "N. Snavely, S. M. Seitz, R. Szeliski", "year": 2008, "venue": "International Journal of Computer Vision 80(2), 189–210", "url": "https://doi.org/10.1007/s11263-007-0107-3", "type": "research-paper" },
+      { "title": "Bundler: Structure from Motion for Unordered Image Collections (code)", "authors": "Noah Snavely", "year": 2008, "venue": "GitHub", "url": "https://github.com/snavely/bundler_sfm", "type": "code" }
+    ],
+    "media": { "type": "diagram", "diagram": "sfm", "caption": "Incremental SfM: cameras registered one by one around a sparse point cloud." }
+  },
+  {
+    "id": "poisson",
+    "year": 2006,
+    "yearLabel": "2006",
+    "title": "Poisson surface reconstruction",
+    "period": "automated-reconstruction",
+    "category": "dense",
+    "type": "algorithm",
+    "status": "established",
+    "researchers": ["Michael Kazhdan", "Matthew Bolitho", "Hugues Hoppe"],
+    "institutions": ["Johns Hopkins University", "Microsoft Research"],
+    "summary": "Watertight meshes from oriented point clouds by solving a Poisson equation for an indicator function.",
+    "context": "Published at the Symposium on Geometry Processing 2006; the screened variant (2013) became the default meshing step for MVS point clouds.",
+    "contribution": "A robust global method to turn noisy, dense point clouds into surfaces.",
+    "technicalExplanation": "Find indicator χ whose gradient best matches the oriented normal field V: Δχ = ∇·V, solved on an adaptive octree; the surface is an iso-level of χ.",
+    "historicalSignificance": "Completed the classical image → points → mesh pipeline used in heritage, VFX and surveying.",
+    "limitations": "Requires consistent normals; tends to close holes (over-smoothing) in sparse regions.",
+    "dates": { "invention": "2006", "publication": "SGP 2006", "adoption": "MeshLab, COLMAP, commercial tools", "improvements": "Screened Poisson (2013)" },
+    "uncertainty": "",
+    "enabledDevelopments": [
+      { "id": "sfm-in-practice", "relation": "enables" }
+    ],
+    "relatedEvents": ["volumetric-surface", "pmvs"],
+    "references": [
+      { "title": "Poisson surface reconstruction", "authors": "M. Kazhdan, M. Bolitho, H. Hoppe", "year": 2006, "venue": "Eurographics Symposium on Geometry Processing", "url": "https://hhoppe.com/proj/poissonrecon/", "type": "research-paper" },
+      { "title": "Screened Poisson surface reconstruction", "authors": "M. Kazhdan, H. Hoppe", "year": 2013, "venue": "ACM Transactions on Graphics 32(3)", "url": "https://doi.org/10.1145/2487228.2487237", "type": "research-paper" }
+    ],
+    "media": { "type": "diagram", "diagram": "mesh", "caption": "An oriented point cloud converted into a watertight mesh." }
+  },
+  {
+    "id": "pmvs",
+    "year": 2007,
+    "yearLabel": "2006 – 2010",
+    "title": "Multi-View Stereo and PMVS",
+    "period": "automated-reconstruction",
+    "category": "dense",
+    "type": "algorithm",
+    "status": "established",
+    "researchers": ["Yasutaka Furukawa", "Jean Ponce", "Steven M. Seitz", "Brian Curless", "James Diebel", "Daniel Scharstein", "Richard Szeliski"],
+    "institutions": ["University of Illinois", "University of Washington", "Middlebury College"],
+    "summary": "Dense reconstruction from many calibrated images, benchmarked systematically and made practical by patch-based expansion.",
+    "context": "Seitz et al. (2006) introduced the Middlebury multi-view stereo benchmark and taxonomy. Furukawa and Ponce's PMVS (CVPR 2007; TPAMI 2010) led the benchmarks and, with CMVS, scaled to SfM outputs.",
+    "contribution": "Dense oriented patches grown from sparse seeds, filtered by visibility constraints — the standard dense step after Bundler/VisualSFM.",
+    "technicalExplanation": "Patches (centre, normal) are optimised to maximise photometric consistency across visible images, expanded to neighbouring cells and filtered for visibility conflicts.",
+    "historicalSignificance": "Together with SfM, completed fully automatic image-to-dense-model reconstruction available to anyone with a camera.",
+    "limitations": "Output is points, not surfaces; struggles on textureless and specular regions.",
+    "dates": { "invention": "2006–2007", "publication": "CVPR 2006 (benchmark); CVPR 2007; TPAMI 2010", "adoption": "Widely used 2008–2016", "improvements": "Depth-map fusion MVS; COLMAP MVS (2016); learned MVS (2018)" },
+    "uncertainty": "",
+    "enabledDevelopments": [
+      { "id": "sfm-in-practice", "relation": "enables" },
+      { "id": "colmap", "relation": "extends" }
+    ],
+    "relatedEvents": ["photo-tourism", "sgm", "poisson"],
+    "references": [
+      { "title": "A comparison and evaluation of multi-view stereo reconstruction algorithms", "authors": "S. M. Seitz, B. Curless, J. Diebel, D. Scharstein, R. Szeliski", "year": 2006, "venue": "CVPR 2006", "url": "https://doi.org/10.1109/CVPR.2006.19", "type": "research-paper" },
+      { "title": "Accurate, dense, and robust multiview stereopsis", "authors": "Y. Furukawa, J. Ponce", "year": 2010, "venue": "IEEE TPAMI 32(8), 1362–1376", "url": "https://doi.org/10.1109/TPAMI.2009.161", "type": "research-paper" }
+    ],
+    "media": { "type": "diagram", "diagram": "pointcloud", "caption": "A dense point cloud grown from oriented patches." }
+  },
+  {
+    "id": "visual-slam",
+    "year": 2007,
+    "yearLabel": "2003 – 2015",
+    "title": "Visual SLAM",
+    "period": "automated-reconstruction",
+    "category": "realtime",
+    "type": "algorithm",
+    "status": "established",
+    "researchers": ["Andrew J. Davison", "Georg Klein", "David Murray", "Raúl Mur-Artal", "J. M. M. Montiel", "Juan D. Tardós"],
+    "institutions": ["University of Oxford", "Imperial College London", "Universidad de Zaragoza"],
+    "summary": "Simultaneous localisation and mapping from a camera in real time.",
+    "context": "MonoSLAM (Davison, 2003; TPAMI 2007) used filtering; PTAM (Klein & Murray, 2007) split tracking and keyframe bundle adjustment into parallel threads; ORB-SLAM (2015) added loop closure and relocalisation with binary features.",
+    "contribution": "Turned SfM into an online, incremental process with real-time pose output — the basis of AR, robotics and spatial computing.",
+    "technicalExplanation": "Tracking estimates the current pose by PnP against the map; mapping triangulates new points from keyframes and runs local bundle adjustment; loop closure detects revisits and corrects drift via pose-graph optimisation.",
+    "historicalSignificance": "Shows photogrammetric estimation adapted to a temporal, causal stream — a precondition for real-time spatial reconstruction and Gaussian SLAM.",
+    "limitations": "Sparse maps; scale drift in monocular systems; dynamic scenes violate assumptions.",
+    "dates": { "invention": "2003 (MonoSLAM)", "publication": "TPAMI 2007; ISMAR 2007; T-RO 2015", "adoption": "ARKit/ARCore (2017), robotics", "improvements": "Direct methods (DTAM, LSD-SLAM), visual–inertial SLAM, Gaussian SLAM (2024)" },
+    "uncertainty": "",
+    "enabledDevelopments": [
+      { "id": "kinectfusion", "relation": "parallel" },
+      { "id": "gaussian-slam", "relation": "foundation" }
+    ],
+    "relatedEvents": ["ransac", "gps-ins-georeferencing", "kinectfusion"],
+    "references": [
+      { "title": "MonoSLAM: real-time single camera SLAM", "authors": "A. J. Davison, I. D. Reid, N. D. Molton, O. Stasse", "year": 2007, "venue": "IEEE TPAMI 29(6), 1052–1067", "url": "https://doi.org/10.1109/TPAMI.2007.1049", "type": "research-paper" },
+      { "title": "Parallel tracking and mapping for small AR workspaces", "authors": "G. Klein, D. Murray", "year": 2007, "venue": "ISMAR 2007", "url": "https://doi.org/10.1109/ISMAR.2007.4538852", "type": "research-paper" },
+      { "title": "ORB-SLAM: a versatile and accurate monocular SLAM system", "authors": "R. Mur-Artal, J. M. M. Montiel, J. D. Tardós", "year": 2015, "venue": "IEEE Transactions on Robotics 31(5), 1147–1163", "url": "https://doi.org/10.1109/TRO.2015.2463671", "type": "research-paper" }
+    ],
+    "media": { "type": "diagram", "diagram": "slam", "caption": "A camera trajectory and sparse map built incrementally, with loop closure." }
+  },
+  {
+    "id": "building-rome",
+    "year": 2009,
+    "yearLabel": "2009",
+    "title": "Building Rome in a Day",
+    "period": "automated-reconstruction",
+    "category": "geometric-vision",
+    "type": "research-paper",
+    "status": "established",
+    "researchers": ["Sameer Agarwal", "Noah Snavely", "Ian Simon", "Steven M. Seitz", "Richard Szeliski"],
+    "institutions": ["University of Washington", "Cornell University", "Microsoft Research"],
+    "summary": "City-scale SfM from hundreds of thousands of internet photographs on a computing cluster.",
+    "context": "Presented at ICCV 2009; showed reconstruction of Rome, Venice and Dubrovnik from Flickr photos within about a day.",
+    "contribution": "Distributed matching (vocabulary trees, query expansion), skeletal graphs and parallel bundle adjustment for internet scale.",
+    "technicalExplanation": "Image retrieval proposes candidate pairs; verified matches form a match graph; connected components are reconstructed independently with skeletal-set selection to reduce bundle adjustment size.",
+    "historicalSignificance": "Scale became a research axis; it also showed the limits of incremental SfM, motivating global SfM methods.",
+    "limitations": "Heavy computation; fragmented models; no georeferencing.",
+    "dates": { "invention": "2009", "publication": "ICCV 2009; Communications of the ACM 2011", "adoption": "", "improvements": "Global SfM (1DSfM, Theia, GLOMAP 2024)" },
+    "uncertainty": "",
+    "enabledDevelopments": [
+      { "id": "colmap", "relation": "extends" }
+    ],
+    "relatedEvents": ["photo-tourism", "block-adjustment-production"],
+    "references": [
+      { "title": "Building Rome in a day", "authors": "S. Agarwal, Y. Furukawa, N. Snavely, I. Simon, B. Curless, S. M. Seitz, R. Szeliski", "year": 2011, "venue": "Communications of the ACM 54(10), 105–112 (ICCV 2009)", "url": "https://doi.org/10.1145/2001269.2001293", "type": "research-paper" }
+    ],
+    "media": { "type": "diagram", "diagram": "network", "caption": "A match graph connecting thousands of photographs." }
+  },
+  {
+    "id": "visualsfm",
+    "year": 2011,
+    "yearLabel": "2011 – 2013",
+    "title": "VisualSFM",
+    "period": "automated-reconstruction",
+    "category": "geometric-vision",
+    "type": "technology",
+    "status": "established",
+    "researchers": ["Changchang Wu"],
+    "institutions": ["University of Washington"],
+    "summary": "A GPU-accelerated, graphical SfM application that put automatic reconstruction in the hands of non-specialists.",
+    "context": "Released around 2011 with SiftGPU and multicore bundle adjustment; the 2013 paper described near-linear-time incremental SfM. Combined with CMVS/PMVS it became a widely used free pipeline.",
+    "contribution": "Speed and accessibility: preemptive matching, GPU features and efficient incremental BA.",
+    "technicalExplanation": "Preemptive matching tests a subset of top-scale features before full matching; bundle adjustment runs on the full model only after geometric growth thresholds, keeping cost near-linear.",
+    "historicalSignificance": "Widely used in archaeology, geoscience and education at the moment SfM entered surveying practice.",
+    "limitations": "Closed source; limited maintenance after the mid-2010s.",
+    "dates": { "invention": "2011", "publication": "3DV 2013", "adoption": "2011–2016", "improvements": "Superseded in research by COLMAP" },
+    "uncertainty": "",
+    "enabledDevelopments": [
+      { "id": "sfm-in-practice", "relation": "enables" }
+    ],
+    "relatedEvents": ["photo-tourism", "colmap"],
+    "references": [
+      { "title": "Towards linear-time incremental structure from motion", "authors": "Changchang Wu", "year": 2013, "venue": "International Conference on 3D Vision (3DV) 2013", "url": "https://doi.org/10.1109/3DV.2013.25", "type": "research-paper" },
+      { "title": "VisualSFM: A Visual Structure from Motion System", "authors": "Changchang Wu", "year": 2011, "venue": "Software", "url": "http://ccwu.me/vsfm/", "type": "code" }
+    ],
+    "media": { "type": "diagram", "diagram": "sfm", "caption": "Accelerated incremental SfM." }
+  },
+  {
+    "id": "sfm-in-practice",
+    "year": 2012,
+    "yearLabel": "2010 – 2015",
+    "title": "SfM–MVS enters surveying practice",
+    "period": "automated-reconstruction",
+    "category": "photogrammetry",
+    "type": "method",
+    "status": "established",
+    "researchers": ["M. J. Westoby", "J. Brasington", "N. F. Glasser", "M. J. Hambrey", "J. M. Reynolds"],
+    "institutions": ["Agisoft", "Pix4D", "IGN (MicMac)"],
+    "summary": "Computer-vision reconstruction pipelines, consumer cameras and small UAVs were adopted in geoscience, heritage and surveying.",
+    "context": "Commercial packages (e.g. Agisoft PhotoScan, Pix4D) and open-source tools (MicMac, VisualSFM) combined SfM, MVS and photogrammetric georeferencing. Westoby et al. (2012) helped popularise 'SfM photogrammetry' in geomorphology; consumer UAVs made aerial capture inexpensive.",
+    "contribution": "Convergence: automated vision front-ends plus photogrammetric back-ends (ground control, self-calibration, accuracy assessment).",
+    "technicalExplanation": "Uncalibrated or consumer cameras; automatic matching and self-calibrating bundle adjustment; georeferencing with GCPs or RTK; dense matching to DSMs, orthomosaics and textured meshes.",
+    "historicalSignificance": "The moment the two lineages became indistinguishable in everyday practice, and when debates about rigour (systematic errors, 'doming', check-point accuracy) re-entered the vision-derived workflow.",
+    "limitations": "Black-box software can hide systematic errors; accuracy reporting was often inconsistent.",
+    "dates": { "invention": "", "publication": "Westoby et al. 2012", "adoption": "Rapid adoption 2012–2015", "improvements": "RTK UAVs; standardised accuracy reporting" },
+    "uncertainty": "The term 'SfM photogrammetry' is contested; photogrammetrists note the workflow is photogrammetry with automated orientation.",
+    "enabledDevelopments": [
+      { "id": "nerf", "relation": "enables" }
+    ],
+    "relatedEvents": ["meydenbauer-architectural", "digital-photogrammetric-workstations", "visualsfm"],
+    "references": [
+      { "title": "'Structure-from-Motion' photogrammetry: a low-cost, effective tool for geoscience applications", "authors": "M. J. Westoby, J. Brasington, N. F. Glasser, M. J. Hambrey, J. M. Reynolds", "year": 2012, "venue": "Geomorphology 179, 300–314", "url": "https://doi.org/10.1016/j.geomorph.2012.08.021", "type": "research-paper" },
+      { "title": "MicMac (open-source photogrammetry software)", "authors": "IGN / ENSG", "year": 2024, "venue": "GitHub", "url": "https://github.com/micmacIGN/micmac", "type": "code" }
+    ],
+    "media": { "type": "diagram", "diagram": "aerial", "caption": "UAV imagery processed with automated SfM and photogrammetric georeferencing." }
+  },
+  {
+    "id": "kinectfusion",
+    "year": 2011,
+    "yearLabel": "2011",
+    "title": "KinectFusion",
+    "period": "automated-reconstruction",
+    "category": "realtime",
+    "type": "research-paper",
+    "status": "established",
+    "researchers": ["Richard A. Newcombe", "Shahram Izadi", "Otmar Hilliges", "David Molyneaux", "Andrew Davison", "Andrew Fitzgibbon"],
+    "institutions": ["Microsoft Research", "Imperial College London"],
+    "summary": "Real-time dense surface reconstruction with a consumer depth camera.",
+    "context": "The Microsoft Kinect (2010) brought structured-light depth sensing to consumers; KinectFusion (ISMAR 2011) fused its depth stream on a GPU.",
+    "contribution": "Interactive, dense, metric 3D capture by tracking against and fusing into a volumetric model.",
+    "technicalExplanation": "Each depth frame is aligned to a raycast of the current model with ICP; then integrated into a truncated signed distance function (TSDF) on a GPU voxel grid.",
+    "historicalSignificance": "Showed that sensing hardware (active depth) and GPUs could make reconstruction real-time; precursor of mobile LiDAR scanning apps.",
+    "limitations": "Bounded volume; drift; static scenes.",
+    "dates": { "invention": "2011", "publication": "ISMAR 2011", "adoption": "Kinect Fusion SDK; 3D scanning apps", "improvements": "Voxel hashing (2013); ElasticFusion, BundleFusion; DynamicFusion (2015)" },
+    "uncertainty": "",
+    "enabledDevelopments": [
+      { "id": "gaussian-slam", "relation": "foundation" }
+    ],
+    "relatedEvents": ["volumetric-surface", "visual-slam"],
+    "references": [
+      { "title": "KinectFusion: real-time dense surface mapping and tracking", "authors": "R. A. Newcombe, S. Izadi, O. Hilliges, D. Molyneaux, D. Kim, A. J. Davison, P. Kohli, J. Shotton, S. Hodges, A. Fitzgibbon", "year": 2011, "venue": "ISMAR 2011", "url": "https://doi.org/10.1109/ISMAR.2011.6092378", "type": "research-paper" }
+    ],
+    "media": { "type": "diagram", "diagram": "voxel", "caption": "Depth frames fused into a truncated signed distance volume." }
+  },
+  {
+    "id": "deep-depth",
+    "year": 2014,
+    "yearLabel": "2014 – 2020",
+    "title": "Learned depth estimation and learned MVS",
+    "period": "automated-reconstruction",
+    "category": "learned-geometry",
+    "type": "algorithm",
+    "status": "established",
+    "researchers": ["David Eigen", "Rob Fergus", "Jure Žbontar", "Yann LeCun", "Yao Yao", "René Ranftl"],
+    "institutions": ["New York University", "HKUST", "Intel Labs"],
+    "summary": "Convolutional networks learned to predict depth from single images and to compute dense matching costs.",
+    "context": "Eigen et al. (2014) predicted depth from a single image; MC-CNN (2015) learned stereo matching costs; MVSNet (2018) built differentiable plane-sweep cost volumes; MiDaS (2020) trained robust relative depth on mixed datasets.",
+    "contribution": "Introduced learned priors into geometric estimation — geometry inferred partly from data statistics rather than only from parallax.",
+    "technicalExplanation": "MVSNet warps deep features from source views onto fronto-parallel planes of the reference camera (homographies), builds a variance-based cost volume and regularises it with 3D CNNs to regress depth.",
+    "historicalSignificance": "The first step toward feed-forward geometry; monocular depth priors are now used to regularise NeRF, 3DGS and dynamic reconstruction.",
+    "limitations": "Scale ambiguity (monocular); dataset bias; weak uncertainty estimates.",
+    "dates": { "invention": "2014", "publication": "NeurIPS 2014; ECCV 2018; TPAMI 2020", "adoption": "Benchmarks; consumer depth effects", "improvements": "Depth Anything (2024); DUSt3R (2024)" },
+    "uncertainty": "",
+    "enabledDevelopments": [
+      { "id": "dust3r", "relation": "foundation" },
+      { "id": "feed-forward-gaussians", "relation": "foundation" }
+    ],
+    "relatedEvents": ["sgm", "pmvs", "dust3r"],
+    "references": [
+      { "title": "Depth map prediction from a single image using a multi-scale deep network", "authors": "D. Eigen, C. Puhrsch, R. Fergus", "year": 2014, "venue": "NeurIPS 2014", "url": "https://arxiv.org/abs/1406.2283", "type": "research-paper" },
+      { "title": "MVSNet: Depth Inference for Unstructured Multi-view Stereo", "authors": "Y. Yao, Z. Luo, S. Li, T. Fang, L. Quan", "year": 2018, "venue": "ECCV 2018", "url": "https://arxiv.org/abs/1804.02505", "type": "research-paper" },
+      { "title": "Towards robust monocular depth estimation: mixing datasets for zero-shot cross-dataset transfer", "authors": "R. Ranftl, K. Lasinger, D. Hafner, K. Schindler, V. Koltun", "year": 2020, "venue": "IEEE TPAMI", "url": "https://arxiv.org/abs/1907.01341", "type": "research-paper" }
+    ],
+    "media": { "type": "diagram", "diagram": "transformer", "caption": "A network maps images to per-pixel depth." }
+  },
+  {
+    "id": "colmap",
+    "year": 2016,
+    "yearLabel": "2016",
+    "title": "COLMAP",
+    "period": "automated-reconstruction",
+    "category": "geometric-vision",
+    "type": "technology",
+    "status": "established",
+    "researchers": ["Johannes L. Schönberger", "Jan-Michael Frahm", "Enliang Zheng", "Marc Pollefeys"],
+    "institutions": ["UNC Chapel Hill", "ETH Zürich"],
+    "summary": "An open-source, general-purpose SfM and MVS pipeline that became the de facto standard for research.",
+    "context": "Described in 'Structure-from-Motion Revisited' (CVPR 2016) and 'Pixelwise View Selection for Unstructured Multi-View Stereo' (ECCV 2016).",
+    "contribution": "Robust geometric verification, next-best-view selection, robust triangulation and iterative BA/re-triangulation; probabilistic PatchMatch MVS with pixel-wise view selection.",
+    "technicalExplanation": "Incremental SfM with scene-graph augmentation and verification; MVS estimates depth and normal per pixel jointly with view selection, then fuses depth maps into a point cloud and meshes with Poisson or Delaunay.",
+    "historicalSignificance": "COLMAP poses are the starting point of almost all NeRF and 3DGS research; neural rendering thus inherits the photogrammetric camera model and its errors.",
+    "limitations": "Slow on large collections; fails on textureless or very sparse captures — the gap feed-forward methods target.",
+    "dates": { "invention": "2015–2016", "publication": "CVPR 2016; ECCV 2016", "adoption": "Research standard from 2016", "improvements": "GLOMAP global SfM (2024); integration with learned features" },
+    "uncertainty": "",
+    "enabledDevelopments": [
+      { "id": "nerf", "relation": "enables" },
+      { "id": "3dgs", "relation": "enables" },
+      { "id": "vggt", "relation": "parallel" }
+    ],
+    "relatedEvents": ["bundle-adjustment", "photo-tourism", "pmvs"],
+    "references": [
+      { "title": "Structure-from-Motion Revisited", "authors": "J. L. Schönberger, J.-M. Frahm", "year": 2016, "venue": "CVPR 2016", "url": "https://openaccess.thecvf.com/content_cvpr_2016/html/Schonberger_Structure-From-Motion_Revisited_CVPR_2016_paper.html", "type": "research-paper" },
+      { "title": "Pixelwise View Selection for Unstructured Multi-View Stereo", "authors": "J. L. Schönberger, E. Zheng, M. Pollefeys, J.-M. Frahm", "year": 2016, "venue": "ECCV 2016", "url": "https://doi.org/10.1007/978-3-319-46487-9_31", "type": "research-paper" },
+      { "title": "COLMAP (project page and code)", "authors": "J. L. Schönberger et al.", "year": 2016, "venue": "Project website", "url": "https://colmap.github.io/", "type": "code" }
+    ],
+    "media": { "type": "diagram", "diagram": "sfm", "caption": "Sparse reconstruction and camera poses — the input to most neural rendering." }
+  },
+  {
+    "id": "learned-matching",
+    "year": 2018,
+    "yearLabel": "2018 – 2021",
+    "title": "Learned feature detection and matching",
+    "period": "automated-reconstruction",
+    "category": "learned-geometry",
+    "type": "algorithm",
+    "status": "established",
+    "researchers": ["Daniel DeTone", "Tomasz Malisiewicz", "Andrew Rabinovich", "Paul-Edouard Sarlin", "Jiaming Sun", "Xiaowei Zhou"],
+    "institutions": ["Magic Leap", "ETH Zürich", "Zhejiang University"],
+    "summary": "Neural networks replaced handcrafted detectors, descriptors and matching heuristics.",
+    "context": "SuperPoint (2018) learned keypoints and descriptors self-supervised; SuperGlue (2020) matched them with attention; LoFTR (2021) matched densely without detectors using transformers.",
+    "contribution": "Robust correspondences under strong viewpoint and illumination change; attention-based reasoning over sets of features.",
+    "technicalExplanation": "SuperGlue treats matching as an optimal transport problem over features refined by self- and cross-attention graph neural networks.",
+    "historicalSignificance": "Attention across images is the conceptual step from learned matching to multi-view transformers that predict geometry directly (DUSt3R, VGGT).",
+    "limitations": "Training-data dependence; compute cost.",
+    "dates": { "invention": "2018", "publication": "CVPRW 2018; CVPR 2020; CVPR 2021", "adoption": "hloc and COLMAP integrations", "improvements": "LightGlue (2023); RoMa (2024)" },
+    "uncertainty": "",
+    "enabledDevelopments": [
+      { "id": "dust3r", "relation": "foundation" },
+      { "id": "mast3r", "relation": "foundation" }
+    ],
+    "relatedEvents": ["sift", "interest-operators"],
+    "references": [
+      { "title": "SuperPoint: Self-Supervised Interest Point Detection and Description", "authors": "D. DeTone, T. Malisiewicz, A. Rabinovich", "year": 2018, "venue": "CVPR Workshops 2018", "url": "https://arxiv.org/abs/1712.07629", "type": "research-paper" },
+      { "title": "SuperGlue: Learning Feature Matching with Graph Neural Networks", "authors": "P.-E. Sarlin, D. DeTone, T. Malisiewicz, A. Rabinovich", "year": 2020, "venue": "CVPR 2020", "url": "https://arxiv.org/abs/1911.11763", "type": "research-paper" },
+      { "title": "LoFTR: Detector-Free Local Feature Matching with Transformers", "authors": "J. Sun, Z. Shen, Y. Wang, H. Bao, X. Zhou", "year": 2021, "venue": "CVPR 2021", "url": "https://arxiv.org/abs/2104.00680", "type": "research-paper" }
+    ],
+    "media": { "type": "diagram", "diagram": "matching", "caption": "Attention-based matching between two image feature sets." }
+  },
+  {
+    "id": "neural-scene-representations",
+    "year": 2019,
+    "yearLabel": "2019",
+    "title": "Neural scene representations",
+    "period": "automated-reconstruction",
+    "category": "neural-rendering",
+    "type": "concept",
+    "status": "established",
+    "researchers": ["Vincent Sitzmann", "Stephen Lombardi", "Jeong Joon Park", "Lars Mescheder", "Andreas Geiger"],
+    "institutions": ["Stanford University", "Facebook Reality Labs", "University of Washington", "University of Tübingen"],
+    "summary": "Scenes and shapes encoded as functions learned by neural networks, rendered differentiably.",
+    "context": "In 2019 several works converged: DeepSDF and Occupancy Networks (implicit shape functions), Scene Representation Networks (SRN), and Neural Volumes (differentiable volume rendering of a learned voxel grid from multi-view video).",
+    "contribution": "Established coordinate-based networks and differentiable rendering as a way to learn 3D from 2D supervision.",
+    "technicalExplanation": "An MLP fθ maps a 3D coordinate (and possibly a latent code) to occupancy, signed distance or radiance; a differentiable renderer compares predicted and observed images, and gradients update θ.",
+    "historicalSignificance": "The immediate antecedents of NeRF; they moved the 'representation' question to the centre of reconstruction research.",
+    "limitations": "Low resolution or limited to objects; slow optimisation.",
+    "dates": { "invention": "2018–2019", "publication": "CVPR 2019; NeurIPS 2019; SIGGRAPH 2019", "adoption": "Research", "improvements": "NeRF (2020)" },
+    "uncertainty": "",
+    "enabledDevelopments": [
+      { "id": "nerf", "relation": "extends" }
+    ],
+    "relatedEvents": ["volume-rendering-optics", "ibr-light-fields", "nerf"],
+    "references": [
+      { "title": "Scene Representation Networks: Continuous 3D-Structure-Aware Neural Scene Representations", "authors": "V. Sitzmann, M. Zollhöfer, G. Wetzstein", "year": 2019, "venue": "NeurIPS 2019", "url": "https://arxiv.org/abs/1906.01618", "type": "research-paper" },
+      { "title": "Neural Volumes: Learning Dynamic Renderable Volumes from Images", "authors": "S. Lombardi, T. Simon, J. Saragih, G. Schwartz, A. Lehrmann, Y. Sheikh", "year": 2019, "venue": "ACM TOG (SIGGRAPH) 2019", "url": "https://arxiv.org/abs/1906.07751", "type": "research-paper" },
+      { "title": "DeepSDF: Learning Continuous Signed Distance Functions for Shape Representation", "authors": "J. J. Park, P. Florence, J. Straub, R. Newcombe, S. Lovegrove", "year": 2019, "venue": "CVPR 2019", "url": "https://arxiv.org/abs/1901.05103", "type": "research-paper" },
+      { "title": "Occupancy Networks: Learning 3D Reconstruction in Function Space", "authors": "L. Mescheder, M. Oechsle, M. Niemeyer, S. Nowozin, A. Geiger", "year": 2019, "venue": "CVPR 2019", "url": "https://arxiv.org/abs/1812.03828", "type": "research-paper" }
+    ],
+    "media": { "type": "diagram", "diagram": "radiance", "caption": "A coordinate network queried along camera rays." }
+  }
+]

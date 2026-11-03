@@ -1,0 +1,173 @@
+[
+  {
+    "id": "laussedat-metrophotography",
+    "year": 1859,
+    "yearLabel": "1849 – 1859",
+    "title": "Laussedat's métrophotographie",
+    "period": "birth-of-photogrammetry",
+    "category": "photogrammetry",
+    "type": "method",
+    "status": "established",
+    "researchers": ["Aimé Laussedat"],
+    "institutions": ["French Army Corps of Engineers", "Conservatoire national des arts et métiers"],
+    "summary": "A French military engineer used perspective views — first drawn with a camera lucida, then photographed — to map terrain by graphical intersection.",
+    "context": "From the late 1840s Laussedat experimented with the camera lucida for topographic sketching and then with photographs. In 1859 he presented the photographic method to the Académie des sciences; surveys of Paris from rooftops and of fortified sites followed in the 1860s.",
+    "contribution": "Defined terrestrial photogrammetry as practice: photographs from known stations, oriented by measured directions, intersected graphically to plot plan positions and heights.",
+    "technicalExplanation": "Each photograph, with known principal distance and horizon line, yields horizontal directions to object points. Rays from two or more surveyed stations are intersected on the plane table (forward intersection); heights follow from vertical image coordinates.",
+    "historicalSignificance": "Laussedat is widely called the 'father of photogrammetry'. His method converted photography from a descriptive into a metric medium.",
+    "limitations": "Point-by-point identification in separate photographs was laborious; terrain without distinct points was hard to map.",
+    "dates": {
+      "invention": "Camera lucida experiments late 1840s; photographic trials 1850s",
+      "publication": "Presentation to the Académie des sciences, 1859",
+      "adoption": "French military surveys 1860s; adopted internationally by the 1880s",
+      "improvements": "Phototheodolites; stereo methods after 1901"
+    },
+    "uncertainty": "Sources give different years (1849, 1851, 1859) depending on whether camera lucida or photographic work is counted as the start.",
+    "enabledDevelopments": [
+      { "id": "deville-photo-topography", "relation": "extends" },
+      { "id": "meydenbauer-architectural", "relation": "parallel" }
+    ],
+    "relatedEvents": ["meydenbauer-architectural", "lambert-inverse-perspective"],
+    "references": [
+      { "title": "Recherches sur les instruments, les méthodes et le dessin topographiques", "authors": "Aimé Laussedat", "year": 1898, "venue": "Paris: Gauthier-Villars, 2 vols (1898–1903)", "url": "", "type": "primary-source" },
+      { "title": "History of Photogrammetry (ISPRS history resources)", "authors": "ISPRS", "year": 2024, "venue": "International Society for Photogrammetry and Remote Sensing", "url": "https://www.isprs.org/", "type": "institutional" }
+    ],
+    "media": { "type": "diagram", "diagram": "intersection", "caption": "Forward intersection: rays from two known stations locate an object point." }
+  },
+  {
+    "id": "meydenbauer-architectural",
+    "year": 1867,
+    "yearLabel": "1858 – 1885",
+    "title": "Meydenbauer and architectural photogrammetry",
+    "period": "birth-of-photogrammetry",
+    "category": "photogrammetry",
+    "type": "method",
+    "status": "established",
+    "researchers": ["Albrecht Meydenbauer"],
+    "institutions": ["Königlich Preußische Messbildanstalt (Berlin)"],
+    "summary": "A Prussian architect developed photographic measurement of buildings, coined the term 'Photogrammetrie' and founded the first state photogrammetric archive.",
+    "context": "Meydenbauer reported that a near-fall while measuring Wetzlar Cathedral (1858) prompted him to seek a photographic alternative. He built wide-angle measuring cameras and in 1885 founded the Messbildanstalt, which systematically recorded monuments on glass plates.",
+    "contribution": "Established heritage documentation as a core application, the idea of a measurement archive that can be re-evaluated later, and the discipline's name.",
+    "technicalExplanation": "Calibrated plate cameras with fiducial marks and known principal distance were set up at measured stations; elevations and plans were derived by intersection and rectification of façades.",
+    "historicalSignificance": "The Messbildanstalt archive (now with the Brandenburg State Office for Heritage) holds many thousands of plates, some used to reconstruct destroyed buildings — an early instance of photogrammetry as memory infrastructure.",
+    "limitations": "Graphical evaluation; accuracy limited by plate flatness and lens distortion.",
+    "dates": {
+      "invention": "Idea 1858; first trials early 1860s",
+      "publication": "Term 'Photogrammetrie' published 1867",
+      "adoption": "Messbildanstalt founded 1885",
+      "improvements": "Stereo-photogrammetric documentation in the 20th century"
+    },
+    "uncertainty": "The first printed use of 'Photogrammetrie' (1867) appeared in an anonymous article in the Wochenblatt des Architektenvereins zu Berlin attributed to Meydenbauer; some historians also credit O. Kersten.",
+    "enabledDevelopments": [
+      { "id": "isp-founding", "relation": "foundation" }
+    ],
+    "relatedEvents": ["laussedat-metrophotography", "sfm-in-practice"],
+    "references": [
+      { "title": "Das Photographische Aufnehmen zu wissenschaftlichen Zwecken, insbesondere das Messbild-Verfahren", "authors": "Albrecht Meydenbauer", "year": 1892, "venue": "Berlin: Unger", "url": "", "type": "primary-source" },
+      { "title": "Albrecht Meydenbauer — Pioneer of photogrammetric documentation of the cultural heritage", "authors": "Jörg Albertz", "year": 2001, "venue": "Proceedings of the 18th International CIPA Symposium, Potsdam", "url": "https://www.cipaheritagedocumentation.org/", "type": "research-paper" }
+    ],
+    "media": { "type": "diagram", "diagram": "facade", "caption": "Façade measured from calibrated photographs taken at known stations." }
+  },
+  {
+    "id": "early-aerial-photography",
+    "year": 1858,
+    "yearLabel": "1858 – 1909",
+    "title": "Early aerial photography",
+    "period": "birth-of-photogrammetry",
+    "category": "imaging",
+    "type": "technology",
+    "status": "established",
+    "researchers": ["Nadar (Gaspard-Félix Tournachon)", "James Wallace Black", "Arthur Batut"],
+    "institutions": [],
+    "summary": "Balloons, kites and later aircraft lifted the camera above the terrain, providing near-vertical views suited to mapping.",
+    "context": "Nadar photographed from a tethered balloon near Paris in 1858; none of those images survive. The oldest surviving aerial photograph is generally identified as Black and King's 1860 view of Boston. Kite aerial photography (e.g. Batut, 1888) and later aircraft (from 1909) followed.",
+    "contribution": "Showed that the plan view of terrain could be photographed directly, rather than constructed from oblique terrestrial views.",
+    "technicalExplanation": "A near-vertical photograph of flat terrain is approximately a scaled map (scale = principal distance / flying height); relief and tilt cause displacements that later required rectification and stereo evaluation.",
+    "historicalSignificance": "Aerial imaging became the dominant data source for topographic mapping for most of the 20th century.",
+    "limitations": "Unknown and unstable platform orientation; small formats; no systematic coverage until aircraft and dedicated cameras.",
+    "dates": {
+      "invention": "Nadar, 1858 (images lost)",
+      "publication": "Nadar patent on aerial photographic surveying, 1858",
+      "adoption": "Systematic military use during the First World War",
+      "improvements": "Aircraft (1909); dedicated aerial mapping cameras (1910s–1920s)"
+    },
+    "uncertainty": "Early claims are documented unevenly; 'first' depends on whether surviving images are required.",
+    "enabledDevelopments": [
+      { "id": "aerial-mapping-camera", "relation": "enables" }
+    ],
+    "relatedEvents": ["aerial-mapping-camera", "photography"],
+    "references": [
+      { "title": "Boston, as the Eagle and the Wild Goose See It (photograph, 1860)", "authors": "James Wallace Black", "year": 1860, "venue": "Metropolitan Museum of Art collection", "url": "", "type": "archive" }
+    ],
+    "media": { "type": "diagram", "diagram": "aerial", "caption": "A vertical aerial photograph: scale is principal distance over flying height." }
+  },
+  {
+    "id": "deville-photo-topography",
+    "year": 1886,
+    "yearLabel": "1886 – 1895",
+    "title": "Photo-topographic survey of the Canadian Rockies",
+    "period": "birth-of-photogrammetry",
+    "category": "photogrammetry",
+    "type": "method",
+    "status": "established",
+    "researchers": ["Édouard Deville"],
+    "institutions": ["Dominion Lands Survey, Canada"],
+    "summary": "Canada's Surveyor General applied photographic surveying at national scale in mountainous terrain.",
+    "context": "Deville adapted Laussedat's methods to the Rocky Mountains from 1886, where plane-table surveying was slow. His manual Photographic Surveying (1895) codified the practice; he later designed a stereoscopic plotting device (1896).",
+    "contribution": "Demonstrated photogrammetry as an operational, cost-effective method for large-area topographic mapping.",
+    "technicalExplanation": "Phototheodolite stations on summits; panoramic sets of plates; graphical intersection and contouring from identified points.",
+    "historicalSignificance": "One of the first sustained state programmes of photogrammetric mapping; the plates also became a valuable archive for glacier and landscape-change research.",
+    "limitations": "Required many identifiable points; laborious office work.",
+    "dates": {
+      "invention": "Adapted from 1886",
+      "publication": "Photographic Surveying, 1895",
+      "adoption": "Dominion survey practice 1886–1920s",
+      "improvements": "Stereo plotting from the 1900s"
+    },
+    "uncertainty": "",
+    "enabledDevelopments": [
+      { "id": "stereocomparator", "relation": "parallel" }
+    ],
+    "relatedEvents": ["laussedat-metrophotography"],
+    "references": [
+      { "title": "Photographic Surveying, Including the Elements of Descriptive Geometry and Perspective", "authors": "Édouard Deville", "year": 1895, "venue": "Ottawa: Government Printing Bureau", "url": "", "type": "primary-source" },
+      { "title": "Mountain Legacy Project (repeat photography of Canadian survey plates)", "authors": "University of Victoria", "year": 2024, "venue": "Project website", "url": "https://mountainlegacy.ca/", "type": "institutional" }
+    ],
+    "media": { "type": "diagram", "diagram": "intersection", "caption": "Summit stations and intersected rays in mountain photo-topography." }
+  },
+  {
+    "id": "finsterwalder-hauck-geometry",
+    "year": 1899,
+    "yearLabel": "1883 – 1899",
+    "title": "Geometric foundations of photogrammetry",
+    "period": "birth-of-photogrammetry",
+    "category": "foundations",
+    "type": "concept",
+    "status": "established",
+    "researchers": ["Guido Hauck", "Sebastian Finsterwalder"],
+    "institutions": ["TH Berlin", "TH München"],
+    "summary": "German geometers formalised the projective relations between two and three photographs of the same object.",
+    "context": "Hauck (1883) studied the relations between multiple perspectives, including what are now read as trilinear relations between three views. Finsterwalder's survey 'Die geometrischen Grundlagen der Photogrammetrie' (1899) systematised orientation and reconstruction from photographs; he also applied photogrammetry to Alpine glaciers.",
+    "contribution": "Put photogrammetry on a rigorous geometric footing: relative and absolute orientation, the reconstruction of an object from two perspectives up to a similarity, and the role of the core (epipolar) geometry.",
+    "technicalExplanation": "Two perspectives of an object with known interior orientation determine the object up to scale, rotation and translation (relative orientation); control points fix the remaining seven parameters (absolute orientation).",
+    "historicalSignificance": "This decomposition of orientation was used, unchanged in concept, by analog instruments and later by analytical photogrammetry; computer vision rederived it as the essential-matrix/similarity ambiguity.",
+    "limitations": "Graphical-geometric; numerical solution awaited computing.",
+    "dates": {
+      "invention": "1883–1899",
+      "publication": "Hauck, J. reine angew. Math. 1883; Finsterwalder, Jahresbericht DMV 1899",
+      "adoption": "Taught in German photogrammetric schools from c. 1900",
+      "improvements": "Kruppa's five-point analysis (1913)"
+    },
+    "uncertainty": "The reading of Hauck's 1883 work as an anticipation of the trifocal tensor is a modern interpretation.",
+    "enabledDevelopments": [
+      { "id": "kruppa-relative-orientation", "relation": "extends" },
+      { "id": "stereoplotters-universal", "relation": "foundation" }
+    ],
+    "relatedEvents": ["projective-geometry", "essential-matrix"],
+    "references": [
+      { "title": "Die geometrischen Grundlagen der Photogrammetrie", "authors": "Sebastian Finsterwalder", "year": 1899, "venue": "Jahresbericht der Deutschen Mathematiker-Vereinigung 6(2), 1–41", "url": "", "type": "research-paper" },
+      { "title": "Neue Constructionen der Perspective und Photogrammetrie", "authors": "Guido Hauck", "year": 1883, "venue": "Journal für die reine und angewandte Mathematik 95", "url": "", "type": "research-paper" }
+    ],
+    "media": { "type": "diagram", "diagram": "epipolar", "caption": "Two oriented perspectives: corresponding rays must intersect (coplanarity)." }
+  }
+]

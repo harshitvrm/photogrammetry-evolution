@@ -1,0 +1,316 @@
+[
+  {
+    "id": "camera-obscura",
+    "year": 1015,
+    "yearLabel": "Antiquity – 1604",
+    "title": "Camera obscura and the optics of the pinhole",
+    "period": "geometric-foundations",
+    "category": "foundations",
+    "type": "concept",
+    "status": "established",
+    "researchers": ["Ibn al-Haytham (Alhazen)", "Johannes Kepler"],
+    "institutions": [],
+    "summary": "The observation that light through a small aperture forms an inverted image established the physical model of central projection.",
+    "context": "Descriptions of images formed through small apertures appear in several ancient textual traditions. Ibn al-Haytham's Book of Optics (c. 1011–1021) gave the first systematic experimental treatment; Kepler's Ad Vitellionem Paralipomena (1604) explained image formation in the eye and the pinhole in terms of rays.",
+    "contribution": "Established that each image point corresponds to a straight ray passing through a single centre of projection — the geometric idea that later becomes the pinhole camera model.",
+    "technicalExplanation": "An ideal pinhole maps a scene point X to the image point x where the line through X and the projection centre C meets the image plane. All modern camera models (collinearity equations, the projection matrix P = K[R | t]) are refinements of this ray model.",
+    "historicalSignificance": "Every reconstruction method in this atlas assumes, or explicitly corrects deviations from, the central-projection model first understood through the camera obscura.",
+    "limitations": "A pure pinhole admits little light; lenses introduce distortion that was not modelled mathematically until the twentieth century.",
+    "dates": {
+      "invention": "Phenomenon described in antiquity (attributions to Mozi and Aristotle rest on later textual traditions)",
+      "publication": "Ibn al-Haytham, Kitāb al-Manāẓir, c. 1011–1021; Kepler, 1604",
+      "adoption": "Drawing aid for artists from the 16th century",
+      "improvements": "Lenses and mirrors (16th–17th c.); photographic camera (1820s–1830s)"
+    },
+    "uncertainty": "Early attributions are based on texts transmitted and edited long after their authors; dates for Ibn al-Haytham's treatise are approximate.",
+    "enabledDevelopments": [
+      { "id": "linear-perspective", "relation": "foundation" },
+      { "id": "photography", "relation": "foundation" }
+    ],
+    "relatedEvents": ["photography", "linear-perspective"],
+    "references": [
+      { "title": "Kitāb al-Manāẓir (Book of Optics)", "authors": "Ibn al-Haytham", "year": 1021, "venue": "Critical edition and translation: A. I. Sabra, The Optics of Ibn al-Haytham, Books I–III, Warburg Institute, 1989", "url": "", "type": "primary-source" },
+      { "title": "Ad Vitellionem Paralipomena, quibus Astronomiae Pars Optica traditur", "authors": "Johannes Kepler", "year": 1604, "venue": "Frankfurt", "url": "", "type": "primary-source" }
+    ],
+    "media": { "type": "diagram", "diagram": "pinhole", "caption": "Central projection: every image point lies on a ray through the projection centre." }
+  },
+  {
+    "id": "linear-perspective",
+    "year": 1435,
+    "yearLabel": "c. 1413 – 1435",
+    "title": "Linear perspective",
+    "period": "geometric-foundations",
+    "category": "foundations",
+    "type": "concept",
+    "status": "established",
+    "researchers": ["Filippo Brunelleschi", "Leon Battista Alberti"],
+    "institutions": [],
+    "summary": "Renaissance artists formulated perspective as a geometric construction: the picture as a planar section of the visual pyramid.",
+    "context": "Brunelleschi's perspective demonstrations in Florence (dated to the 1410s) are known through Antonio Manetti's later biography. Alberti's De pictura (1435) gave the first written method, describing the picture as a window intersecting the pyramid of rays converging on the eye.",
+    "contribution": "Turned the optical model of the camera obscura into a constructive drawing rule with a defined eye point, picture plane, horizon and vanishing points.",
+    "technicalExplanation": "Parallel lines in space converge to a vanishing point in the picture; the eye point (projection centre) and its distance to the picture plane (principal distance) determine the image. These are the interior-orientation parameters of a camera.",
+    "historicalSignificance": "Perspective made the image a geometric object. If a picture is a precise projection, it can in principle be inverted to recover space — the basis of all photogrammetry.",
+    "limitations": "A construction for producing images, not yet a theory for measuring from them.",
+    "dates": {
+      "invention": "Brunelleschi's demonstrations, c. 1413–1425 (date uncertain)",
+      "publication": "Alberti, De pictura, 1435 (Italian version Della pittura, 1436)",
+      "adoption": "Standard in European painting and architecture by the late 15th century",
+      "improvements": "Piero della Francesca, De prospectiva pingendi (c. 1470s); Dürer (1525)"
+    },
+    "uncertainty": "Brunelleschi left no written account; the experiment's date and exact procedure are reconstructed from Manetti's biography written in the 1480s.",
+    "enabledDevelopments": [
+      { "id": "durer-perspective-machines", "relation": "extends" },
+      { "id": "projective-geometry", "relation": "foundation" },
+      { "id": "lambert-inverse-perspective", "relation": "foundation" }
+    ],
+    "relatedEvents": ["camera-obscura", "durer-perspective-machines"],
+    "references": [
+      { "title": "De pictura", "authors": "Leon Battista Alberti", "year": 1435, "venue": "Translation: C. Grayson, On Painting, Penguin Classics, 1991", "url": "", "type": "primary-source" },
+      { "title": "The Science of Art: Optical Themes in Western Art from Brunelleschi to Seurat", "authors": "Martin Kemp", "year": 1990, "venue": "Yale University Press", "url": "", "type": "book" }
+    ],
+    "media": { "type": "diagram", "diagram": "perspective", "caption": "Parallel lines converge to a vanishing point on the horizon." }
+  },
+  {
+    "id": "durer-perspective-machines",
+    "year": 1525,
+    "yearLabel": "1525",
+    "title": "Dürer's perspective machines",
+    "period": "geometric-foundations",
+    "category": "foundations",
+    "type": "technology",
+    "status": "established",
+    "researchers": ["Albrecht Dürer"],
+    "institutions": [],
+    "summary": "Mechanical devices that physically trace the ray from object to eye and record its intersection with a picture plane.",
+    "context": "In Underweysung der Messung (Nuremberg, 1525; expanded 1538) Dürer illustrated drawing frames, threads and sighting devices for producing perspective images mechanically.",
+    "contribution": "Materialised central projection as an instrument: a fixed eye point, a thread representing the ray, and a frame representing the image plane.",
+    "technicalExplanation": "The thread from a fixed point on the wall through each object point is intersected by a frame; the intersection is transferred to paper. This is a mechanical realisation of the collinearity condition — object point, projection centre and image point on one line.",
+    "historicalSignificance": "An early instance of the idea, central to analog photogrammetry four centuries later, that rays can be reconstructed by physical mechanisms.",
+    "limitations": "Slow, point-by-point and suitable only for producing images, not measuring from them.",
+    "dates": {
+      "invention": "Devices described 1525",
+      "publication": "Underweysung der Messung, 1525; 2nd ed. 1538",
+      "adoption": "Widely reproduced in perspective treatises",
+      "improvements": "Optical stereoplotters (20th c.) mechanically reconstruct rays in the inverse direction"
+    },
+    "uncertainty": "",
+    "enabledDevelopments": [
+      { "id": "stereoplotters-universal", "relation": "parallel" }
+    ],
+    "relatedEvents": ["linear-perspective"],
+    "references": [
+      { "title": "Underweysung der Messung, mit dem Zirckel und Richtscheyt", "authors": "Albrecht Dürer", "year": 1525, "venue": "Nuremberg", "url": "", "type": "primary-source" }
+    ],
+    "media": { "type": "diagram", "diagram": "frame", "caption": "A thread from a fixed eye point is intersected by a frame — a mechanical collinearity condition." }
+  },
+  {
+    "id": "projective-geometry",
+    "year": 1639,
+    "yearLabel": "1639 – 1822",
+    "title": "Projective geometry",
+    "period": "geometric-foundations",
+    "category": "foundations",
+    "type": "concept",
+    "status": "established",
+    "researchers": ["Girard Desargues", "Gaspard Monge", "Jean-Victor Poncelet"],
+    "institutions": ["École Polytechnique"],
+    "summary": "Mathematics of the properties preserved under projection — incidence, cross-ratio, points at infinity.",
+    "context": "Desargues introduced points at infinity and projective reasoning (Brouillon project, 1639) but his work was little read. Monge's descriptive geometry (1799) formalised orthographic projection for engineering; Poncelet's Traité des propriétés projectives des figures (1822) established projective geometry as a discipline.",
+    "contribution": "Provided the invariants (cross-ratio, collinearity, incidence) that remain true between an object and its photograph, independent of metric distortion.",
+    "technicalExplanation": "In homogeneous coordinates, a pinhole camera is a linear map P from projective 3-space to the projective plane. Homographies, epipolar geometry and projective reconstruction in computer vision are direct applications.",
+    "historicalSignificance": "Photogrammetry first exploited Euclidean constructions; computer vision in the 1990s built its theory of uncalibrated reconstruction on projective geometry.",
+    "limitations": "Projective reconstruction is defined only up to a projective transformation; metric information requires calibration.",
+    "dates": {
+      "invention": "Desargues, 1639",
+      "publication": "Monge, Géométrie descriptive, 1799; Poncelet, 1822",
+      "adoption": "Core mathematics of 19th-century geometry",
+      "improvements": "Homogeneous coordinates (Möbius, Plücker, 1820s–1830s)"
+    },
+    "uncertainty": "",
+    "enabledDevelopments": [
+      { "id": "lambert-inverse-perspective", "relation": "foundation" },
+      { "id": "finsterwalder-hauck-geometry", "relation": "foundation" },
+      { "id": "projective-multiview-geometry", "relation": "foundation" }
+    ],
+    "relatedEvents": ["linear-perspective", "projective-multiview-geometry"],
+    "references": [
+      { "title": "Traité des propriétés projectives des figures", "authors": "Jean-Victor Poncelet", "year": 1822, "venue": "Paris: Bachelier", "url": "", "type": "primary-source" },
+      { "title": "Géométrie descriptive", "authors": "Gaspard Monge", "year": 1799, "venue": "Paris: Baudouin", "url": "", "type": "primary-source" }
+    ],
+    "media": { "type": "diagram", "diagram": "projective", "caption": "A projection preserves incidence and the cross-ratio of collinear points." }
+  },
+  {
+    "id": "lambert-inverse-perspective",
+    "year": 1759,
+    "yearLabel": "1759",
+    "title": "Lambert and the inverse problem of perspective",
+    "period": "geometric-foundations",
+    "category": "foundations",
+    "type": "concept",
+    "status": "established",
+    "researchers": ["Johann Heinrich Lambert"],
+    "institutions": [],
+    "summary": "Lambert treated perspective as reversible: from a perspective image one can recover the station point and the ground plan.",
+    "context": "Lambert's Die freye Perspektive (Zürich, 1759; 2nd ed. 1774) developed perspective constructions without a ground plan and discussed reconstructing the eye position and object geometry from a given perspective.",
+    "contribution": "Formulated what photogrammetry would call resection and restitution: determining the projection centre from known points, and recovering object geometry from the image.",
+    "technicalExplanation": "If enough points with known spatial relationships appear in a perspective image, the eye point (exterior orientation) and the principal distance (interior orientation) are constrained geometrically, after which further points can be reconstructed.",
+    "historicalSignificance": "Frequently cited in the photogrammetric literature as the theoretical precursor of the discipline, nearly a century before photographs existed to apply it to.",
+    "limitations": "Graphical, not analytical; no error theory.",
+    "dates": {
+      "invention": "1759",
+      "publication": "Die freye Perspektive, 1759; expanded 1774",
+      "adoption": "Rediscovered by photogrammetrists in the late 19th century",
+      "improvements": "Analytical resection (Grunert 1841); photogrammetric restitution (Laussedat, Meydenbauer)"
+    },
+    "uncertainty": "The extent to which Lambert's text directly influenced 19th-century practitioners is debated; his status as a precursor is partly retrospective.",
+    "enabledDevelopments": [
+      { "id": "laussedat-metrophotography", "relation": "foundation" },
+      { "id": "grunert-resection", "relation": "parallel" }
+    ],
+    "relatedEvents": ["grunert-resection", "laussedat-metrophotography"],
+    "references": [
+      { "title": "Die freye Perspektive, oder Anweisung, jeden perspektivischen Aufriß von freyen Stücken und ohne Grundriß zu verfertigen", "authors": "Johann Heinrich Lambert", "year": 1759, "venue": "Zürich: Heidegger", "url": "", "type": "primary-source" }
+    ],
+    "media": { "type": "diagram", "diagram": "resection", "caption": "Inverse perspective: recovering the eye point from rays to known points." }
+  },
+  {
+    "id": "least-squares",
+    "year": 1805,
+    "yearLabel": "1805 – 1809",
+    "title": "The method of least squares",
+    "period": "geometric-foundations",
+    "category": "foundations",
+    "type": "concept",
+    "status": "established",
+    "researchers": ["Adrien-Marie Legendre", "Carl Friedrich Gauss"],
+    "institutions": [],
+    "summary": "A principled way to combine redundant, noisy observations into a best estimate with quantified precision.",
+    "context": "Legendre published the method in 1805 in a work on cometary orbits. Gauss published his probabilistic justification in Theoria motus (1809) and claimed to have used the method since 1795, leading to a well-known priority dispute. Gauss applied it extensively in geodesy, notably the Hanover arc measurement.",
+    "contribution": "Provided the estimation principle — minimise the sum of squared residuals — and, through Gauss, its link to normally distributed errors and to precision estimates.",
+    "technicalExplanation": "For observations l with model f(x), choose x to minimise vᵀPv with residuals v = f(x) − l and weight matrix P. Linearised iteratively (Gauss–Newton), this is exactly how bundle adjustment is solved today.",
+    "historicalSignificance": "Geodesy and photogrammetry are adjustment sciences. Without least squares there is no bundle adjustment, no self-calibration and no rigorous accuracy statement.",
+    "limitations": "Sensitive to outliers (gross errors), which motivated robust estimation and RANSAC in the 20th century.",
+    "dates": {
+      "invention": "Contested: Gauss claimed use from 1795",
+      "publication": "Legendre 1805; Gauss 1809",
+      "adoption": "Geodetic networks throughout the 19th century",
+      "improvements": "Gauss–Markov theorem; robust estimators (1960s–); sparse solvers for bundle adjustment"
+    },
+    "uncertainty": "Historical priority between Gauss and Legendre is disputed; Legendre published first.",
+    "enabledDevelopments": [
+      { "id": "analytical-photogrammetry", "relation": "foundation" },
+      { "id": "bundle-adjustment", "relation": "foundation" }
+    ],
+    "relatedEvents": ["bundle-adjustment", "ransac"],
+    "references": [
+      { "title": "Nouvelles méthodes pour la détermination des orbites des comètes", "authors": "Adrien-Marie Legendre", "year": 1805, "venue": "Paris: Courcier", "url": "", "type": "primary-source" },
+      { "title": "Theoria motus corporum coelestium in sectionibus conicis solem ambientium", "authors": "Carl Friedrich Gauss", "year": 1809, "venue": "Hamburg: Perthes & Besser", "url": "", "type": "primary-source" },
+      { "title": "Gauss and the Invention of Least Squares", "authors": "Stephen M. Stigler", "year": 1981, "venue": "The Annals of Statistics 9(3), 465–474", "url": "https://doi.org/10.1214/aos/1176345451", "type": "research-paper" }
+    ],
+    "media": { "type": "diagram", "diagram": "leastsquares", "caption": "Redundant observations adjusted to a best-fitting model by minimising squared residuals." }
+  },
+  {
+    "id": "stereoscope",
+    "year": 1838,
+    "yearLabel": "1838",
+    "title": "The stereoscope and binocular vision",
+    "period": "geometric-foundations",
+    "category": "imaging",
+    "type": "technology",
+    "status": "established",
+    "researchers": ["Charles Wheatstone", "David Brewster"],
+    "institutions": ["Royal Society"],
+    "summary": "Wheatstone showed that two slightly different drawings, one per eye, produce a perception of depth.",
+    "context": "Wheatstone's paper to the Royal Society (1838) described a mirror stereoscope and explained stereopsis by binocular disparity. Brewster's lenticular stereoscope (1849) and the stereo photograph made the effect a popular medium in the 1850s.",
+    "contribution": "Identified binocular disparity as the cue to depth, and showed that an artificial pair of images reproduces it.",
+    "technicalExplanation": "A point at depth Z seen by two viewpoints separated by baseline B appears with horizontal parallax p ∝ B·f / Z. Measuring parallax therefore measures depth — the principle of all stereo photogrammetry and stereo matching.",
+    "historicalSignificance": "The perceptual foundation of the stereocomparator and every analog stereoplotter, and later of computational stereo.",
+    "limitations": "Perception, not measurement: quantitative use required the floating mark (Stolze, Pulfrich, c. 1890s–1901).",
+    "dates": {
+      "invention": "Wheatstone, constructed by 1832–1838",
+      "publication": "Philosophical Transactions, 1838",
+      "adoption": "Stereo photography boom from the 1850s",
+      "improvements": "Brewster lenticular stereoscope (1849); floating-mark measurement (c. 1890s–1901)"
+    },
+    "uncertainty": "",
+    "enabledDevelopments": [
+      { "id": "stereocomparator", "relation": "foundation" },
+      { "id": "marr-poggio-stereo", "relation": "foundation" }
+    ],
+    "relatedEvents": ["stereocomparator", "photography"],
+    "references": [
+      { "title": "Contributions to the Physiology of Vision. — Part the First. On some remarkable, and hitherto unobserved, Phenomena of Binocular Vision", "authors": "Charles Wheatstone", "year": 1838, "venue": "Philosophical Transactions of the Royal Society of London 128, 371–394", "url": "https://doi.org/10.1098/rstl.1838.0019", "type": "research-paper" }
+    ],
+    "media": { "type": "diagram", "diagram": "stereo", "caption": "Parallax between two viewpoints encodes depth." }
+  },
+  {
+    "id": "grunert-resection",
+    "year": 1841,
+    "yearLabel": "1841",
+    "title": "Grunert's three-point resection",
+    "period": "geometric-foundations",
+    "category": "foundations",
+    "type": "algorithm",
+    "status": "established",
+    "researchers": ["Johann August Grunert"],
+    "institutions": [],
+    "summary": "An analytical solution for the position of a viewpoint from the directions to three known points — today's P3P problem.",
+    "context": "Grunert published the spatial extension of the classical surveying resection (the 'Pothenot problem') in 1841. It reduces to a fourth-degree polynomial with up to four real solutions.",
+    "contribution": "Gave the minimal closed-form solution for camera pose from three known 3D points, decades before photography was used for measurement.",
+    "technicalExplanation": "Given angles between rays to three points with known mutual distances, the law of cosines yields three equations in the unknown distances, reducible to a quartic. Each root defines a candidate pose.",
+    "historicalSignificance": "Rediscovered repeatedly; Fischler and Bolles used P3P as the minimal solver inside RANSAC (1981), and P3P/PnP remains the core of camera localisation and SLAM.",
+    "limitations": "Ambiguous (up to four solutions) and sensitive near the 'danger cylinder' configuration.",
+    "dates": {
+      "invention": "1841",
+      "publication": "Archiv der Mathematik und Physik, 1841",
+      "adoption": "Photogrammetric space resection (20th c.)",
+      "improvements": "Haralick et al. review of P3P solutions (1994); efficient PnP solvers (2000s)"
+    },
+    "uncertainty": "",
+    "enabledDevelopments": [
+      { "id": "ransac", "relation": "foundation" }
+    ],
+    "relatedEvents": ["lambert-inverse-perspective", "ransac"],
+    "references": [
+      { "title": "Das Pothenotische Problem in erweiterter Gestalt nebst Bemerkungen über seine Anwendung in der Geodäsie", "authors": "Johann August Grunert", "year": 1841, "venue": "Grunerts Archiv für Mathematik und Physik 1, 238–248", "url": "", "type": "research-paper" },
+      { "title": "Review and analysis of solutions of the three point perspective pose estimation problem", "authors": "R. M. Haralick, C.-N. Lee, K. Ottenberg, M. Nölle", "year": 1994, "venue": "International Journal of Computer Vision 13(3), 331–356", "url": "https://doi.org/10.1007/BF02028352", "type": "research-paper" }
+    ],
+    "media": { "type": "diagram", "diagram": "resection", "caption": "Pose from three known points: the minimal resection problem." }
+  },
+  {
+    "id": "photography",
+    "year": 1839,
+    "yearLabel": "1826 – 1841",
+    "title": "The invention of photography",
+    "period": "geometric-foundations",
+    "category": "imaging",
+    "type": "technology",
+    "status": "established",
+    "researchers": ["Nicéphore Niépce", "Louis Daguerre", "William Henry Fox Talbot", "François Arago"],
+    "institutions": ["Académie des sciences"],
+    "summary": "The camera obscura image became a permanent, chemically recorded central projection.",
+    "context": "Niépce produced a surviving camera image around 1826–1827. Daguerre's process was announced in 1839 through Arago at the Académie des sciences, which also highlighted the medium's scientific potential. Talbot's negative–positive process (photogenic drawing 1839; calotype 1841) allowed copies.",
+    "contribution": "Supplied an objective, geometrically faithful, repeatable record of a perspective projection — the raw material of photogrammetry.",
+    "technicalExplanation": "A lens camera approximates the pinhole model with a principal distance and principal point, plus lens distortion. Glass plates later provided dimensional stability; film and sensor flatness became recurrent accuracy concerns.",
+    "historicalSignificance": "Within a decade of 1839, engineers began experimenting with photographs as measurable perspectives.",
+    "limitations": "Long exposures, unknown lens distortion and unstable media limited early metric use.",
+    "dates": {
+      "invention": "Niépce, c. 1826–1827",
+      "publication": "Daguerreotype announced 1839",
+      "adoption": "Commercial portrait and topographic photography from the 1840s–1850s",
+      "improvements": "Collodion wet plate (1851); dry gelatin plates (1870s); roll film (1880s)"
+    },
+    "uncertainty": "Several inventors developed processes in parallel; 'first photograph' depends on definitions (permanence, camera vs contact image).",
+    "enabledDevelopments": [
+      { "id": "laussedat-metrophotography", "relation": "enables" },
+      { "id": "meydenbauer-architectural", "relation": "enables" },
+      { "id": "early-aerial-photography", "relation": "enables" }
+    ],
+    "relatedEvents": ["camera-obscura", "laussedat-metrophotography"],
+    "references": [
+      { "title": "Rapport sur le daguerréotype (address to the Chambre des députés)", "authors": "François Arago", "year": 1839, "venue": "Paris", "url": "", "type": "primary-source" },
+      { "title": "The Pencil of Nature", "authors": "William Henry Fox Talbot", "year": 1844, "venue": "London: Longman, Brown, Green & Longmans", "url": "https://www.gutenberg.org/ebooks/33447", "type": "primary-source" }
+    ],
+    "media": { "type": "diagram", "diagram": "camera", "caption": "The photographic camera: a lens approximation of the pinhole model with a recording plane." }
+  }
+]

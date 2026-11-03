@@ -1,0 +1,650 @@
+[
+  {
+    "id": "analytical-photogrammetry",
+    "year": 1956,
+    "yearLabel": "c. 1950 – 1960",
+    "title": "Analytical photogrammetry and the collinearity equations",
+    "period": "analytical-digital",
+    "category": "photogrammetry",
+    "type": "concept",
+    "status": "established",
+    "researchers": ["Hellmut Schmid", "Duane C. Brown"],
+    "institutions": ["Ballistic Research Laboratories, Aberdeen Proving Ground"],
+    "summary": "The ray geometry once embodied in instruments was written as equations and solved numerically on electronic computers.",
+    "context": "Ballistic missile tracking in the 1950s demanded higher accuracy than analog instruments could provide. At the US Army's Ballistic Research Laboratories, Schmid formulated a general least-squares treatment of photogrammetric triangulation, with rigorous error propagation.",
+    "contribution": "The collinearity equations — image point, projection centre and object point on one line — became the universal observation model, solved by iterative least squares.",
+    "technicalExplanation": "x = x₀ − c·[r₁₁(X−X₀)+r₂₁(Y−Y₀)+r₃₁(Z−Z₀)] / [r₁₃(X−X₀)+r₂₃(Y−Y₀)+r₃₃(Z−Z₀)], and similarly for y. Unknowns are exterior orientation (X₀,Y₀,Z₀, R), interior orientation (c, x₀, y₀) and object coordinates; the equations are linearised and solved by Gauss–Newton.",
+    "historicalSignificance": "Separated photogrammetry from its instruments. Any camera, any geometry and any number of images could be handled, provided computation was available.",
+    "limitations": "Computationally heavy for 1950s machines; required good initial values.",
+    "dates": {
+      "invention": "Early-to-mid 1950s",
+      "publication": "Schmid, Photogrammetria, 1956–57",
+      "adoption": "Satellite geodesy and military applications 1960s; civil mapping 1970s",
+      "improvements": "Bundle adjustment, self-calibration (Brown, 1958–1971)"
+    },
+    "uncertainty": "The collinearity condition itself is classical; the attribution concerns its systematic use as a computational model.",
+    "enabledDevelopments": [
+      { "id": "bundle-adjustment", "relation": "extends" },
+      { "id": "analytical-plotter", "relation": "enables" },
+      { "id": "dlt", "relation": "extends" }
+    ],
+    "relatedEvents": ["least-squares", "bundle-adjustment"],
+    "references": [
+      { "title": "An analytical treatment of the problem of triangulation by stereophotogrammetry", "authors": "Hellmut Schmid", "year": 1956, "venue": "Photogrammetria 13, 67–77 (1956–57)", "url": "", "type": "research-paper" },
+      { "title": "Manual of Photogrammetry, 6th edition", "authors": "J. C. McGlone (ed.)", "year": 2013, "venue": "ASPRS", "url": "https://www.asprs.org/", "type": "book" }
+    ],
+    "media": { "type": "diagram", "diagram": "collinearity", "caption": "Collinearity: object point, projection centre and image point lie on one ray." }
+  },
+  {
+    "id": "bundle-adjustment",
+    "year": 1958,
+    "yearLabel": "1958",
+    "title": "Bundle adjustment",
+    "period": "analytical-digital",
+    "category": "photogrammetry",
+    "type": "algorithm",
+    "status": "established",
+    "researchers": ["Duane C. Brown"],
+    "institutions": ["RCA Missile Test Project, Patrick Air Force Base"],
+    "summary": "Simultaneous least-squares estimation of all camera orientations and all object points from all image observations.",
+    "context": "Brown's 1958 technical report gave a general solution to multi-station analytical triangulation, exploiting the sparse block structure of the normal equations so the problem became tractable.",
+    "contribution": "Treated each image as a bundle of rays and adjusted all bundles jointly so that corresponding rays meet optimally, minimising reprojection error.",
+    "technicalExplanation": "Minimise Σᵢⱼ ‖xᵢⱼ − π(Pᵢ, Xⱼ)‖² over cameras Pᵢ and points Xⱼ. The normal-equation matrix has a sparse arrowhead structure; eliminating points via the Schur complement leaves a reduced camera system.",
+    "historicalSignificance": "The most enduring algorithm in this atlas. It is the final stage of COLMAP and every SfM system, the refinement step behind 3DGS initialisation, and the benchmark against which feed-forward methods are compared.",
+    "limitations": "Non-convex; requires good initialisation and outlier removal; datum (gauge) must be defined.",
+    "dates": {
+      "invention": "1957–1958",
+      "publication": "RCA Data Reduction Technical Report No. 43, 1958",
+      "adoption": "Aerial triangulation production from the 1970s",
+      "improvements": "Self-calibration (1971); sparse solvers; robust kernels; Triggs et al. synthesis (1999)"
+    },
+    "uncertainty": "Parallel developments (Schmid; Ackermann's group) mean 'invention' is shared; Brown's report is the commonly cited origin of the bundle method.",
+    "enabledDevelopments": [
+      { "id": "self-calibration", "relation": "extends" },
+      { "id": "block-adjustment-production", "relation": "enables" },
+      { "id": "bundle-adjustment-cv", "relation": "parallel" }
+    ],
+    "relatedEvents": ["least-squares", "analytical-photogrammetry", "colmap"],
+    "references": [
+      { "title": "A solution to the general problem of multiple station analytical stereotriangulation", "authors": "Duane C. Brown", "year": 1958, "venue": "RCA-MTP Data Reduction Technical Report No. 43, Patrick AFB", "url": "", "type": "technical-report" },
+      { "title": "Close-Range Photogrammetry and 3D Imaging, 3rd edition", "authors": "T. Luhmann, S. Robson, S. Kyle, J. Boehm", "year": 2020, "venue": "De Gruyter", "url": "https://doi.org/10.1515/9783110607253", "type": "book" }
+    ],
+    "media": { "type": "diagram", "diagram": "bundle", "caption": "Bundles of rays from several cameras adjusted to meet at common object points." }
+  },
+  {
+    "id": "analytical-plotter",
+    "year": 1957,
+    "yearLabel": "1957 – 1976",
+    "title": "The analytical plotter",
+    "period": "analytical-digital",
+    "category": "photogrammetry",
+    "type": "technology",
+    "status": "established",
+    "researchers": ["Uuno V. Helava"],
+    "institutions": ["National Research Council of Canada", "OMI-Bendix"],
+    "summary": "A stereo viewer whose image carriages are driven by a computer solving the collinearity equations in real time.",
+    "context": "Helava proposed the principle in 1957. Early systems were built in the early 1960s for military mapping; the technology became mainstream after the 1976 ISP congress in Helsinki, where several manufacturers presented analytical plotters.",
+    "contribution": "Replaced optical–mechanical ray reconstruction with computation, removing instrument constraints on camera type, focal length and geometry.",
+    "technicalExplanation": "The operator moves in object space (X,Y,Z); the computer projects the position into both images via collinearity and positions the plates accordingly, keeping the floating mark on the model.",
+    "historicalSignificance": "The bridge between analog and digital photogrammetry: still human stereo perception, but computational geometry.",
+    "limitations": "Costly; still analog film; measurement remained manual.",
+    "dates": {
+      "invention": "1957 (principle)",
+      "publication": "Helava, Photogrammetria, 1957",
+      "adoption": "Widespread after 1976",
+      "improvements": "Digital photogrammetric workstations replaced film (late 1980s–1990s)"
+    },
+    "uncertainty": "",
+    "enabledDevelopments": [
+      { "id": "digital-photogrammetric-workstations", "relation": "reinterprets" }
+    ],
+    "relatedEvents": ["stereoplotters-universal", "analytical-photogrammetry"],
+    "references": [
+      { "title": "New principle for photogrammetric plotters", "authors": "Uuno V. Helava", "year": 1957, "venue": "Photogrammetria 14(2), 89–96", "url": "", "type": "research-paper" }
+    ],
+    "media": { "type": "diagram", "diagram": "plotter", "caption": "Computer-driven image carriages replace mechanical space rods." }
+  },
+  {
+    "id": "dtm-concept",
+    "year": 1958,
+    "yearLabel": "1958",
+    "title": "The digital terrain model",
+    "period": "analytical-digital",
+    "category": "photogrammetry",
+    "type": "concept",
+    "status": "established",
+    "researchers": ["Charles L. Miller", "R. A. Laflamme"],
+    "institutions": ["Massachusetts Institute of Technology"],
+    "summary": "Terrain represented as a numerical array of heights rather than as drawn contours.",
+    "context": "Working on highway engineering at MIT, Miller and Laflamme proposed sampling terrain heights from photogrammetric stereo models and storing them for computer analysis.",
+    "contribution": "Introduced terrain as data — a representation computers could analyse (earthworks, slopes) and later generate automatically.",
+    "technicalExplanation": "A DTM/DEM stores heights on a regular grid or triangulated irregular network (TIN). Contours, slope, visibility and orthophotos are derived products.",
+    "historicalSignificance": "The first widely adopted digital 3D representation derived from images; the ancestor of dense point clouds and meshes.",
+    "limitations": "2.5D — one height per planimetric position; overhangs and vertical structure cannot be represented.",
+    "dates": {
+      "invention": "1957–1958",
+      "publication": "Photogrammetric Engineering, 1958",
+      "adoption": "National DEM programmes 1970s–1990s",
+      "improvements": "Automated DEMs by image matching (1980s–); SRTM global DEM (2000); LiDAR DEMs"
+    },
+    "uncertainty": "",
+    "enabledDevelopments": [
+      { "id": "image-matching", "relation": "enables" },
+      { "id": "sgm", "relation": "enables" }
+    ],
+    "relatedEvents": ["stereoplotters-universal", "image-matching"],
+    "references": [
+      { "title": "The Digital Terrain Model — Theory & Application", "authors": "C. L. Miller, R. A. Laflamme", "year": 1958, "venue": "Photogrammetric Engineering 24(3), 433–442", "url": "", "type": "research-paper" },
+      { "title": "The Shuttle Radar Topography Mission", "authors": "T. G. Farr et al.", "year": 2007, "venue": "Reviews of Geophysics 45, RG2004", "url": "https://doi.org/10.1029/2005RG000183", "type": "research-paper" }
+    ],
+    "media": { "type": "diagram", "diagram": "grid", "caption": "Terrain sampled as a grid of heights." }
+  },
+  {
+    "id": "roberts-blocks-world",
+    "year": 1963,
+    "yearLabel": "1963",
+    "title": "Machine perception of three-dimensional solids",
+    "period": "analytical-digital",
+    "category": "geometric-vision",
+    "type": "research-paper",
+    "status": "established",
+    "researchers": ["Lawrence G. Roberts"],
+    "institutions": ["MIT Lincoln Laboratory"],
+    "summary": "A computer recovered the 3D shape and pose of polyhedral objects from a single photograph — an origin point of computer vision.",
+    "context": "Roberts' doctoral thesis used edge detection, homogeneous coordinates and model matching to interpret 'blocks world' scenes.",
+    "contribution": "Introduced the goal of automatic scene interpretation and brought projective (homogeneous) camera matrices into computing.",
+    "technicalExplanation": "Edges are extracted, grouped into polygons, and matched to a library of polyhedral models; a 4×4 homogeneous transformation and projection recovers model pose.",
+    "historicalSignificance": "Marks the start of the computer-vision lineage, which grew largely independently from photogrammetry until their convergence around 2000–2010.",
+    "limitations": "Restricted to idealised polyhedral scenes.",
+    "dates": { "invention": "1961–1963", "publication": "MIT PhD thesis, 1963", "adoption": "AI vision research 1960s–70s", "improvements": "Model-based recognition; Marr's computational theory" },
+    "uncertainty": "",
+    "enabledDevelopments": [
+      { "id": "marr-poggio-stereo", "relation": "foundation" },
+      { "id": "interest-operators", "relation": "foundation" }
+    ],
+    "relatedEvents": ["projective-geometry"],
+    "references": [
+      { "title": "Machine Perception of Three-Dimensional Solids", "authors": "Lawrence G. Roberts", "year": 1963, "venue": "PhD thesis, MIT; published in Optical and Electro-Optical Information Processing, MIT Press, 1965", "url": "", "type": "thesis" }
+    ],
+    "media": { "type": "diagram", "diagram": "blocks", "caption": "Polyhedral models matched to image edges." }
+  },
+  {
+    "id": "self-calibration",
+    "year": 1971,
+    "yearLabel": "1966 – 1971",
+    "title": "Lens distortion models and self-calibration",
+    "period": "analytical-digital",
+    "category": "photogrammetry",
+    "type": "algorithm",
+    "status": "established",
+    "researchers": ["Duane C. Brown", "A. E. Conrady"],
+    "institutions": ["DBA Systems"],
+    "summary": "Camera interior orientation and lens distortion estimated as unknowns within the bundle adjustment itself.",
+    "context": "Building on Conrady's (1919) treatment of decentred lenses, Brown published the decentring distortion model (1966) and the self-calibrating bundle adjustment for close-range cameras (1971).",
+    "contribution": "Made non-metric and close-range cameras usable for precise measurement; the Brown–Conrady model is still the default distortion model in OpenCV and COLMAP.",
+    "technicalExplanation": "Radial distortion Δr = k₁r³ + k₂r⁵ + k₃r⁷ and decentring terms p₁, p₂ are added to the collinearity equations; principal distance, principal point and distortion coefficients are estimated with the orientations from a strong multi-image network.",
+    "historicalSignificance": "Calibration is the junction where photogrammetry, computer vision and neural rendering meet: NeRF and 3DGS still assume an undistorted pinhole obtained this way.",
+    "limitations": "Parameter correlations with weak geometry; models fail for fisheye and rolling-shutter cameras without extension.",
+    "dates": { "invention": "1966 (decentring), 1971 (self-calibration)", "publication": "Photogrammetric Engineering, 1966 and 1971", "adoption": "Industrial close-range photogrammetry 1970s–80s", "improvements": "Tsai (1987), Zhang (2000) calibration in computer vision" },
+    "uncertainty": "",
+    "enabledDevelopments": [
+      { "id": "dlt", "relation": "parallel" },
+      { "id": "colmap", "relation": "foundation" }
+    ],
+    "relatedEvents": ["bundle-adjustment", "dlt"],
+    "references": [
+      { "title": "Decentering distortion of lenses", "authors": "Duane C. Brown", "year": 1966, "venue": "Photogrammetric Engineering 32(3), 444–462", "url": "", "type": "research-paper" },
+      { "title": "Close-range camera calibration", "authors": "Duane C. Brown", "year": 1971, "venue": "Photogrammetric Engineering 37(8), 855–866", "url": "", "type": "research-paper" }
+    ],
+    "media": { "type": "diagram", "diagram": "distortion", "caption": "Radial distortion displaces image points relative to the ideal pinhole." }
+  },
+  {
+    "id": "dlt",
+    "year": 1971,
+    "yearLabel": "1971 – 2000",
+    "title": "Direct Linear Transformation and camera calibration",
+    "period": "analytical-digital",
+    "category": "photogrammetry",
+    "type": "algorithm",
+    "status": "established",
+    "researchers": ["Y. I. Abdel-Aziz", "H. M. Karara", "Roger Y. Tsai", "Zhengyou Zhang"],
+    "institutions": ["University of Illinois at Urbana-Champaign", "IBM", "Microsoft Research"],
+    "summary": "A linear model relating image and object coordinates, solvable without initial values; later the standard computer-vision camera matrix.",
+    "context": "Abdel-Aziz and Karara proposed the DLT for close-range photogrammetry with non-metric cameras (1971). Computer vision adopted the same linear 3×4 camera matrix; Tsai (1987) and Zhang (2000, planar checkerboard) produced the calibration methods most widely used in vision and robotics.",
+    "contribution": "Gave a closed-form initialisation for camera parameters and made calibration accessible to non-specialists.",
+    "technicalExplanation": "x ≃ P X with P a 3×4 matrix (11 DOF), estimated linearly from ≥6 control points; P decomposes into K[R|t]. Zhang's method estimates K from homographies of a planar target seen in several views, then refines non-linearly.",
+    "historicalSignificance": "A clear case of the same mathematics living in both communities under different names.",
+    "limitations": "Linear estimation ignores distortion and is not statistically optimal; refined by bundle adjustment.",
+    "dates": { "invention": "1971", "publication": "ASP Symposium on Close-Range Photogrammetry, 1971", "adoption": "Biomechanics, industrial and vision calibration 1970s–", "improvements": "Tsai 1987; Zhang 2000" },
+    "uncertainty": "",
+    "enabledDevelopments": [
+      { "id": "projective-multiview-geometry", "relation": "parallel" }
+    ],
+    "relatedEvents": ["self-calibration", "analytical-photogrammetry"],
+    "references": [
+      { "title": "Direct linear transformation from comparator coordinates into object space coordinates in close-range photogrammetry", "authors": "Y. I. Abdel-Aziz, H. M. Karara", "year": 1971, "venue": "Proc. ASP/UI Symposium on Close-Range Photogrammetry, Urbana; reprinted PE&RS 81(2), 2015", "url": "", "type": "research-paper" },
+      { "title": "A versatile camera calibration technique for high-accuracy 3D machine vision metrology using off-the-shelf TV cameras and lenses", "authors": "Roger Y. Tsai", "year": 1987, "venue": "IEEE Journal on Robotics and Automation 3(4), 323–344", "url": "https://doi.org/10.1109/JRA.1987.1087109", "type": "research-paper" },
+      { "title": "A flexible new technique for camera calibration", "authors": "Zhengyou Zhang", "year": 2000, "venue": "IEEE TPAMI 22(11), 1330–1334", "url": "https://doi.org/10.1109/34.888718", "type": "research-paper" }
+    ],
+    "media": { "type": "diagram", "diagram": "collinearity", "caption": "The 3×4 projection matrix maps homogeneous object points to image points." }
+  },
+  {
+    "id": "block-adjustment-production",
+    "year": 1973,
+    "yearLabel": "1960s – 1980s",
+    "title": "Aerial triangulation in production",
+    "period": "analytical-digital",
+    "category": "photogrammetry",
+    "type": "method",
+    "status": "established",
+    "researchers": ["Friedrich Ackermann"],
+    "institutions": ["Institut für Photogrammetrie, Universität Stuttgart"],
+    "summary": "Block adjustment software made analytical triangulation of thousands of aerial images routine in mapping agencies.",
+    "context": "Ackermann's group in Stuttgart developed block adjustment with independent models (PAT-M) and bundle block adjustment (PAT-B), widely used in production from the 1970s. Research on reliability (Baarda's data snooping, 1968) and on self-calibration made the results statistically controlled.",
+    "contribution": "Reduced ground control requirements and turned triangulation into a computational service with statistically tested quality.",
+    "technicalExplanation": "Blocks of overlapping strips are adjusted with tie points, sparse ground control and later GPS-observed projection centres. Gross-error detection tests standardised residuals.",
+    "historicalSignificance": "Established the large-scale, quality-controlled estimation practice that computer vision would rediscover for internet photo collections.",
+    "limitations": "Tie points still measured manually or semi-automatically until the 1990s.",
+    "dates": { "invention": "1960s", "publication": "Program descriptions in the 1970s", "adoption": "Mapping agencies worldwide 1970s–1990s", "improvements": "GPS-supported AT (late 1980s); automatic tie-point extraction (1990s)" },
+    "uncertainty": "Software and publication dates vary across versions.",
+    "enabledDevelopments": [
+      { "id": "gps-ins-georeferencing", "relation": "extends" },
+      { "id": "building-rome", "relation": "parallel" }
+    ],
+    "relatedEvents": ["bundle-adjustment"],
+    "references": [
+      { "title": "A testing procedure for use in geodetic networks", "authors": "W. Baarda", "year": 1968, "venue": "Netherlands Geodetic Commission, Publications on Geodesy 2(5)", "url": "", "type": "technical-report" },
+      { "title": "Photogrammetry: Geometry from Images and Laser Scans, 2nd ed.", "authors": "Karl Kraus", "year": 2007, "venue": "De Gruyter", "url": "", "type": "book" }
+    ],
+    "media": { "type": "diagram", "diagram": "aerial", "caption": "A block of overlapping strips tied together and to ground control." }
+  },
+  {
+    "id": "marr-poggio-stereo",
+    "year": 1976,
+    "yearLabel": "1976 – 1982",
+    "title": "Computational theory of stereo vision",
+    "period": "analytical-digital",
+    "category": "geometric-vision",
+    "type": "research-paper",
+    "status": "established",
+    "researchers": ["David Marr", "Tomaso Poggio"],
+    "institutions": ["MIT Artificial Intelligence Laboratory"],
+    "summary": "Stereo correspondence formulated as a computational problem with explicit constraints — uniqueness, continuity, compatibility.",
+    "context": "Marr and Poggio proposed a cooperative algorithm for random-dot stereograms (1976) and a coarse-to-fine theory (1979). Marr's Vision (1982) framed perception as a sequence of representations.",
+    "contribution": "Defined the matching problem that dense stereo algorithms solve: find disparities subject to smoothness and uniqueness priors.",
+    "technicalExplanation": "Correspondences are constrained by the epipolar line, a smoothness prior on disparity and a one-to-one matching assumption; ambiguity is resolved by cooperative or coarse-to-fine computation.",
+    "historicalSignificance": "Inspired decades of stereo research leading to global energy minimisation, SGM and learned stereo.",
+    "limitations": "Biologically motivated, not metrically rigorous.",
+    "dates": { "invention": "1976", "publication": "Science, 1976; Proc. R. Soc. B, 1979", "adoption": "Computer vision stereo research", "improvements": "Global optimisation (graph cuts, 2001); SGM (2005)" },
+    "uncertainty": "",
+    "enabledDevelopments": [
+      { "id": "sgm", "relation": "foundation" },
+      { "id": "image-matching", "relation": "parallel" }
+    ],
+    "relatedEvents": ["stereoscope", "image-matching"],
+    "references": [
+      { "title": "Cooperative computation of stereo disparity", "authors": "D. Marr, T. Poggio", "year": 1976, "venue": "Science 194(4262), 283–287", "url": "https://doi.org/10.1126/science.968482", "type": "research-paper" },
+      { "title": "Vision: A Computational Investigation into the Human Representation and Processing of Visual Information", "authors": "David Marr", "year": 1982, "venue": "W. H. Freeman (reissued MIT Press, 2010)", "url": "", "type": "book" }
+    ],
+    "media": { "type": "diagram", "diagram": "matching", "caption": "Correspondence search along epipolar lines." }
+  },
+  {
+    "id": "essential-matrix",
+    "year": 1981,
+    "yearLabel": "1981",
+    "title": "The essential matrix and the eight-point algorithm",
+    "period": "analytical-digital",
+    "category": "geometric-vision",
+    "type": "algorithm",
+    "status": "established",
+    "researchers": ["H. Christopher Longuet-Higgins"],
+    "institutions": ["University of Sussex"],
+    "summary": "A linear algorithm for the relative orientation of two calibrated views from eight correspondences.",
+    "context": "Published in Nature, the paper encoded the coplanarity condition — known to photogrammetrists since the early 20th century — as a single 3×3 matrix.",
+    "contribution": "Gave computer vision a compact algebraic formulation of two-view geometry and a linear solution.",
+    "technicalExplanation": "For normalised image points x, x′: x′ᵀ E x = 0 with E = [t]ₓR. Eight correspondences give a linear system for E; decomposition yields R and t up to scale. The uncalibrated analogue is the fundamental matrix F.",
+    "historicalSignificance": "A canonical example of parallel rediscovery: photogrammetric relative orientation reframed as linear algebra, which made it easy to embed in automatic pipelines.",
+    "limitations": "Numerically sensitive without normalisation (Hartley, 1997); not minimal.",
+    "dates": { "invention": "1981", "publication": "Nature, 1981", "adoption": "Standard in vision from late 1980s", "improvements": "Hartley normalisation (1997); five-point solver (Nistér 2004)" },
+    "uncertainty": "",
+    "enabledDevelopments": [
+      { "id": "projective-multiview-geometry", "relation": "foundation" },
+      { "id": "photo-tourism", "relation": "foundation" }
+    ],
+    "relatedEvents": ["kruppa-relative-orientation", "finsterwalder-hauck-geometry"],
+    "references": [
+      { "title": "A computer algorithm for reconstructing a scene from two projections", "authors": "H. C. Longuet-Higgins", "year": 1981, "venue": "Nature 293, 133–135", "url": "https://doi.org/10.1038/293133a0", "type": "research-paper" },
+      { "title": "In defense of the eight-point algorithm", "authors": "Richard I. Hartley", "year": 1997, "venue": "IEEE TPAMI 19(6), 580–593", "url": "https://doi.org/10.1109/34.601246", "type": "research-paper" }
+    ],
+    "media": { "type": "diagram", "diagram": "epipolar", "caption": "Epipolar geometry: x′ᵀEx = 0." }
+  },
+  {
+    "id": "ransac",
+    "year": 1981,
+    "yearLabel": "1981",
+    "title": "RANSAC — random sample consensus",
+    "period": "analytical-digital",
+    "category": "geometric-vision",
+    "type": "algorithm",
+    "status": "established",
+    "researchers": ["Martin A. Fischler", "Robert C. Bolles"],
+    "institutions": ["SRI International"],
+    "summary": "Robust model fitting by repeatedly fitting minimal samples and keeping the hypothesis with the most inliers.",
+    "context": "Developed for the 'location determination problem' (camera resection from landmarks) in automated cartography, the paper solved P3P inside a hypothesise-and-verify loop.",
+    "contribution": "Made automatic estimation possible in the presence of many wrong correspondences — the precondition for automated matching pipelines.",
+    "technicalExplanation": "Draw a minimal sample (e.g. 3 points for P3P, 5 for relative pose), compute the model, count observations within a threshold; repeat N times where N depends on the inlier ratio and confidence.",
+    "historicalSignificance": "Photogrammetry handled blunders by statistical testing after adjustment; RANSAC tolerated outlier rates far beyond what least squares can handle, enabling automatic feature matching.",
+    "limitations": "Threshold-dependent; cost grows rapidly with low inlier ratios.",
+    "dates": { "invention": "1980", "publication": "Communications of the ACM, 1981", "adoption": "Universal in vision", "improvements": "MLESAC, PROSAC, LO-RANSAC, MAGSAC (2000s–2010s)" },
+    "uncertainty": "",
+    "enabledDevelopments": [
+      { "id": "photo-tourism", "relation": "enables" },
+      { "id": "visual-slam", "relation": "enables" }
+    ],
+    "relatedEvents": ["grunert-resection", "least-squares", "sift"],
+    "references": [
+      { "title": "Random sample consensus: a paradigm for model fitting with applications to image analysis and automated cartography", "authors": "M. A. Fischler, R. C. Bolles", "year": 1981, "venue": "Communications of the ACM 24(6), 381–395", "url": "https://doi.org/10.1145/358669.358692", "type": "research-paper" }
+    ],
+    "media": { "type": "diagram", "diagram": "ransac", "caption": "Inliers agree with the hypothesis; outliers are ignored." }
+  },
+  {
+    "id": "volume-rendering-optics",
+    "year": 1984,
+    "yearLabel": "1984 – 1995",
+    "title": "Volume rendering and its optical model",
+    "period": "analytical-digital",
+    "category": "neural-rendering",
+    "type": "concept",
+    "status": "established",
+    "researchers": ["James T. Kajiya", "Brian P. Von Herzen", "Nelson Max", "Marc Levoy"],
+    "institutions": ["Caltech", "Lawrence Livermore National Laboratory", "Stanford University"],
+    "summary": "Rendering participating media by integrating emission and absorption along rays — the image-formation model NeRF would later invert.",
+    "context": "Kajiya and Von Herzen (1984) ray-traced volume densities; Levoy (1988) and Drebin et al. (1988) applied volume rendering to medical data; Max (1995) systematised the optical models.",
+    "contribution": "Provided a differentiable, continuous model of how density and colour along a ray produce a pixel.",
+    "technicalExplanation": "C = ∫ T(t) σ(t) c(t) dt with transmittance T(t) = exp(−∫σ). Discretised as alpha compositing: C = Σ Tᵢ αᵢ cᵢ.",
+    "historicalSignificance": "Computer graphics, not photogrammetry, provided the forward model on which neural radiance fields and, in rasterised form, Gaussian splatting are built.",
+    "limitations": "Forward rendering only; no reconstruction until differentiable optimisation.",
+    "dates": { "invention": "1984", "publication": "SIGGRAPH 1984; IEEE TVCG 1995", "adoption": "Scientific and medical visualisation 1990s", "improvements": "Differentiable volume rendering (Neural Volumes 2019; NeRF 2020)" },
+    "uncertainty": "",
+    "enabledDevelopments": [
+      { "id": "neural-scene-representations", "relation": "foundation" },
+      { "id": "nerf", "relation": "foundation" },
+      { "id": "ewa-splatting", "relation": "parallel" }
+    ],
+    "relatedEvents": ["nerf", "ewa-splatting"],
+    "references": [
+      { "title": "Ray tracing volume densities", "authors": "J. T. Kajiya, B. P. Von Herzen", "year": 1984, "venue": "SIGGRAPH Computer Graphics 18(3), 165–174", "url": "https://doi.org/10.1145/964965.808594", "type": "research-paper" },
+      { "title": "Optical models for direct volume rendering", "authors": "Nelson Max", "year": 1995, "venue": "IEEE TVCG 1(2), 99–108", "url": "https://doi.org/10.1109/2945.468400", "type": "research-paper" }
+    ],
+    "media": { "type": "diagram", "diagram": "volume", "caption": "Colour accumulated along a ray, weighted by density and transmittance." }
+  },
+  {
+    "id": "image-matching",
+    "year": 1985,
+    "yearLabel": "late 1950s – 1990s",
+    "title": "Digital image matching",
+    "period": "analytical-digital",
+    "category": "photogrammetry",
+    "type": "algorithm",
+    "status": "established",
+    "researchers": ["Gilbert L. Hobrough", "Armin Gruen", "Friedrich Ackermann"],
+    "institutions": ["ETH Zürich", "Universität Stuttgart"],
+    "summary": "Automatic determination of corresponding points by correlating image intensities.",
+    "context": "Hobrough built electronic correlators for automatic stereo (late 1950s). With digitised imagery in the 1980s, area-based matching was formulated as least-squares estimation (Ackermann 1984; Gruen 1985), achieving sub-pixel precision with quality measures.",
+    "contribution": "Replaced the human stereo operator for point transfer and DEM generation; least-squares matching integrated matching into the photogrammetric error theory.",
+    "technicalExplanation": "Least-squares matching estimates an affine geometric and linear radiometric transformation between a template and search window by minimising grey-value differences; geometric constraints (epipolar, collinearity) can be added.",
+    "historicalSignificance": "The core of automatic DEM generation and automatic aerial triangulation in the 1990s.",
+    "limitations": "Requires good approximations; fails on low texture, occlusions and wide baselines.",
+    "dates": { "invention": "Analog correlators late 1950s", "publication": "Ackermann 1984; Gruen 1985", "adoption": "Commercial DEM matching 1990s", "improvements": "Semi-global matching (2005); learned matching (2015–)" },
+    "uncertainty": "Early correlator dates vary across sources.",
+    "enabledDevelopments": [
+      { "id": "digital-photogrammetric-workstations", "relation": "enables" },
+      { "id": "sgm", "relation": "extends" },
+      { "id": "pmvs", "relation": "parallel" }
+    ],
+    "relatedEvents": ["marr-poggio-stereo", "interest-operators", "dtm-concept"],
+    "references": [
+      { "title": "Adaptive least squares correlation: a powerful image matching technique", "authors": "Armin Gruen", "year": 1985, "venue": "South African Journal of Photogrammetry, Remote Sensing and Cartography 14(3), 175–187", "url": "", "type": "research-paper" },
+      { "title": "Digital image correlation: performance and potential application in photogrammetry", "authors": "Friedrich Ackermann", "year": 1984, "venue": "The Photogrammetric Record 11(64), 429–439", "url": "https://doi.org/10.1111/j.1477-9730.1984.tb00505.x", "type": "research-paper" }
+    ],
+    "media": { "type": "diagram", "diagram": "matching", "caption": "A template patch matched to its counterpart by intensity correlation." }
+  },
+  {
+    "id": "interest-operators",
+    "year": 1987,
+    "yearLabel": "1977 – 1988",
+    "title": "Interest operators and corner detection",
+    "period": "analytical-digital",
+    "category": "geometric-vision",
+    "type": "algorithm",
+    "status": "established",
+    "researchers": ["Hans Moravec", "Wolfgang Förstner", "Eberhard Gülch", "Chris Harris", "Mike Stephens"],
+    "institutions": ["Stanford University", "Universität Stuttgart", "Plessey Research"],
+    "summary": "Detectors that select distinctive, precisely localisable points suitable for automatic matching.",
+    "context": "Moravec's operator (late 1970s) served robot navigation. Förstner and Gülch (1987) derived a detector from the precision of least-squares matching; Harris and Stephens (1988) proposed the closely related corner detector that became standard in vision.",
+    "contribution": "Shifted matching from dense correlation to sparse, well-conditioned features — the idea that SIFT and SfM pipelines build on.",
+    "technicalExplanation": "Both use the structure tensor M = Σ ∇I ∇Iᵀ in a window; corners have two large eigenvalues. Förstner relates M to the covariance of the point's position; Harris scores det(M) − k·trace(M)².",
+    "historicalSignificance": "A direct photogrammetry/vision convergence: the same eigenvalue analysis of local image structure, motivated by precision in one community and by repeatability in the other.",
+    "limitations": "Not invariant to scale; descriptors still required.",
+    "dates": { "invention": "Moravec 1977–80; Förstner 1986–87; Harris 1988", "publication": "ISPRS Interlaken 1987; Alvey Vision Conference 1988", "adoption": "Tracking and matching in vision, 1990s", "improvements": "Scale-space detectors; SIFT (1999)" },
+    "uncertainty": "",
+    "enabledDevelopments": [
+      { "id": "sift", "relation": "extends" }
+    ],
+    "relatedEvents": ["image-matching", "sift"],
+    "references": [
+      { "title": "A fast operator for detection and precise location of distinct points, corners and centres of circular features", "authors": "W. Förstner, E. Gülch", "year": 1987, "venue": "Proc. ISPRS Intercommission Conference on Fast Processing of Photogrammetric Data, Interlaken, 281–305", "url": "", "type": "research-paper" },
+      { "title": "A combined corner and edge detector", "authors": "C. Harris, M. Stephens", "year": 1988, "venue": "Proc. Alvey Vision Conference, 147–151", "url": "https://doi.org/10.5244/C.2.23", "type": "research-paper" }
+    ],
+    "media": { "type": "diagram", "diagram": "features", "caption": "Corners: points where local structure is well-conditioned in two directions." }
+  },
+  {
+    "id": "volumetric-surface",
+    "year": 1987,
+    "yearLabel": "1987 – 1996",
+    "title": "Surface extraction and volumetric fusion",
+    "period": "analytical-digital",
+    "category": "dense",
+    "type": "algorithm",
+    "status": "established",
+    "researchers": ["William E. Lorensen", "Harvey E. Cline", "Brian Curless", "Marc Levoy"],
+    "institutions": ["General Electric", "Stanford University"],
+    "summary": "Methods to turn sampled volumes and range images into watertight triangle meshes.",
+    "context": "Marching cubes (1987) extracted iso-surfaces from medical volumes. Curless and Levoy (1996) fused many range scans into a signed-distance volume, the method behind the Digital Michelangelo Project.",
+    "contribution": "Established implicit signed-distance fields and iso-surface extraction as a route from measurements to meshes.",
+    "technicalExplanation": "Each range image contributes weighted signed distances to voxels along lines of sight; the zero level set of the averaged field is extracted with marching cubes.",
+    "historicalSignificance": "The template for KinectFusion's TSDF (2011) and for extracting surfaces from neural SDFs (NeuS, 2021).",
+    "limitations": "Memory grows cubically; resolution limited by voxel size.",
+    "dates": { "invention": "1987; 1996", "publication": "SIGGRAPH 1987; SIGGRAPH 1996", "adoption": "3D scanning industry 1990s", "improvements": "Poisson reconstruction (2006); sparse voxel hashing (2013)" },
+    "uncertainty": "",
+    "enabledDevelopments": [
+      { "id": "kinectfusion", "relation": "foundation" },
+      { "id": "poisson", "relation": "parallel" },
+      { "id": "neus", "relation": "foundation" }
+    ],
+    "relatedEvents": ["poisson", "kinectfusion"],
+    "references": [
+      { "title": "Marching cubes: a high resolution 3D surface construction algorithm", "authors": "W. E. Lorensen, H. E. Cline", "year": 1987, "venue": "SIGGRAPH Computer Graphics 21(4), 163–169", "url": "https://doi.org/10.1145/37402.37422", "type": "research-paper" },
+      { "title": "A volumetric method for building complex models from range images", "authors": "B. Curless, M. Levoy", "year": 1996, "venue": "SIGGRAPH 1996, 303–312", "url": "https://doi.org/10.1145/237170.237269", "type": "research-paper" }
+    ],
+    "media": { "type": "diagram", "diagram": "voxel", "caption": "A signed distance field on a voxel grid; the surface is its zero level set." }
+  },
+  {
+    "id": "digital-photogrammetric-workstations",
+    "year": 1988,
+    "yearLabel": "1988 – 2000s",
+    "title": "Digital (softcopy) photogrammetry",
+    "period": "analytical-digital",
+    "category": "photogrammetry",
+    "type": "technology",
+    "status": "established",
+    "researchers": [],
+    "institutions": ["ISPRS", "Kern", "Leica", "Intergraph / Z/I Imaging", "Vexcel"],
+    "summary": "Scanned and later natively digital images processed on computer workstations, with automatic matching replacing optical instruments.",
+    "context": "Digital photogrammetric workstations were presented at the 1988 ISPRS congress in Kyoto and became production systems during the 1990s, using scanned film. Large-format digital aerial cameras (e.g. Leica ADS40 and Z/I DMC around 2000–2001; Vexcel UltraCam 2003) completed the transition.",
+    "contribution": "Automated interior orientation, tie-point extraction, DEM generation and orthophoto production.",
+    "technicalExplanation": "Epipolar resampling, image pyramids, least-squares and feature-based matching, automatic aerial triangulation, orthorectification using DEMs.",
+    "historicalSignificance": "Ended the era of the optical–mechanical instrument. The workflow — orient, match, densify, orthorectify — is recognisable inside modern SfM–MVS software.",
+    "limitations": "Proprietary, expensive, designed for vertical aerial blocks with metric cameras.",
+    "dates": { "invention": "Mid-1980s research systems", "publication": "Workstations shown at ISPRS Kyoto 1988", "adoption": "Production use 1990s", "improvements": "Digital aerial cameras 2000–2003" },
+    "uncertainty": "Which system was 'first' depends on definitions; several prototypes existed in the mid-1980s.",
+    "enabledDevelopments": [
+      { "id": "sgm", "relation": "enables" },
+      { "id": "sfm-in-practice", "relation": "parallel" }
+    ],
+    "relatedEvents": ["analytical-plotter", "image-matching"],
+    "references": [
+      { "title": "State-of-the-art of digital photogrammetric workstations for topographic applications", "authors": "Christian Heipke", "year": 1995, "venue": "Photogrammetric Engineering & Remote Sensing 61(1), 49–56", "url": "", "type": "research-paper" }
+    ],
+    "media": { "type": "diagram", "diagram": "workstation", "caption": "Digital images, automatic matching and orthophoto generation on a workstation." }
+  },
+  {
+    "id": "gps-ins-georeferencing",
+    "year": 1993,
+    "yearLabel": "late 1980s – 2000",
+    "title": "GPS/INS integration and direct georeferencing",
+    "period": "analytical-digital",
+    "category": "photogrammetry",
+    "type": "technology",
+    "status": "established",
+    "researchers": ["Klaus-Peter Schwarz", "Friedrich Ackermann"],
+    "institutions": ["University of Calgary", "Universität Stuttgart"],
+    "summary": "Satellite positioning and inertial navigation measured camera position and orientation directly in flight.",
+    "context": "GPS-supported aerial triangulation (late 1980s) reduced ground control. Integrated GPS/INS (early 1990s) provided full exterior orientation, essential for line scanners and airborne LiDAR.",
+    "contribution": "Made exterior orientation an observation rather than only an unknown, and enabled sensors without frame geometry.",
+    "technicalExplanation": "Kalman filtering fuses GNSS positions and IMU accelerations and rates; lever-arm and boresight calibration relate the navigation frame to the camera frame. Observed poses enter bundle adjustment as weighted observations.",
+    "historicalSignificance": "Underpins airborne LiDAR, mobile mapping and today's UAV photogrammetry; in vision the analogue is visual–inertial odometry.",
+    "limitations": "Boresight misalignment and GNSS outages; IMU drift.",
+    "dates": { "invention": "Late 1980s", "publication": "Schwarz et al., PE&RS 1993", "adoption": "Commercial airborne systems mid-1990s", "improvements": "RTK/PPK UAVs (2010s); visual–inertial SLAM" },
+    "uncertainty": "",
+    "enabledDevelopments": [
+      { "id": "visual-slam", "relation": "parallel" }
+    ],
+    "relatedEvents": ["block-adjustment-production"],
+    "references": [
+      { "title": "An integrated INS/GPS approach to the georeferencing of remotely sensed data", "authors": "K. P. Schwarz, M. A. Chapman, M. W. Cannon, P. Gong", "year": 1993, "venue": "Photogrammetric Engineering & Remote Sensing 59(11), 1667–1674", "url": "", "type": "research-paper" }
+    ],
+    "media": { "type": "diagram", "diagram": "satellite", "caption": "Satellite positioning and inertial sensing observe the camera's pose." }
+  },
+  {
+    "id": "projective-multiview-geometry",
+    "year": 1992,
+    "yearLabel": "1992 – 2000",
+    "title": "Projective and multiple-view geometry",
+    "period": "analytical-digital",
+    "category": "geometric-vision",
+    "type": "concept",
+    "status": "established",
+    "researchers": ["Olivier Faugeras", "Richard Hartley", "Andrew Zisserman", "Carlo Tomasi", "Takeo Kanade", "Amnon Shashua"],
+    "institutions": ["INRIA", "GE Research", "University of Oxford", "Carnegie Mellon University"],
+    "summary": "Reconstruction from uncalibrated images, up to a projective ambiguity, and its upgrade to metric structure.",
+    "context": "In 1992 Faugeras and Hartley independently showed what can be reconstructed from uncalibrated views. Tomasi and Kanade introduced factorisation for affine cameras (1992); trifocal tensors and auto-calibration followed. Hartley and Zisserman's Multiple View Geometry (2000) consolidated the field.",
+    "contribution": "A complete algebraic theory of two-, three- and N-view geometry that does not require calibrated cameras — essential for internet photographs.",
+    "technicalExplanation": "From F alone cameras are recovered up to a 4×4 homography H; constraints on K (auto-calibration, e.g. via the absolute conic) upgrade to metric. Factorisation stacks image tracks into a rank-3 measurement matrix decomposed by SVD.",
+    "historicalSignificance": "Gave computer vision the tools to initialise reconstruction from unknown cameras, a step photogrammetry had avoided by calibrating first.",
+    "limitations": "Projective algebra ignores noise models; final accuracy still needs bundle adjustment.",
+    "dates": { "invention": "1992", "publication": "ECCV 1992; IJCV 1992; Hartley & Zisserman 2000", "adoption": "Standard curriculum in vision", "improvements": "Robust auto-calibration; minimal solvers" },
+    "uncertainty": "",
+    "enabledDevelopments": [
+      { "id": "bundle-adjustment-cv", "relation": "enables" },
+      { "id": "photo-tourism", "relation": "foundation" }
+    ],
+    "relatedEvents": ["projective-geometry", "essential-matrix", "finsterwalder-hauck-geometry"],
+    "references": [
+      { "title": "What can be seen in three dimensions with an uncalibrated stereo rig?", "authors": "Olivier Faugeras", "year": 1992, "venue": "ECCV 1992, LNCS 588, 563–578", "url": "https://doi.org/10.1007/3-540-55426-2_61", "type": "research-paper" },
+      { "title": "Shape and motion from image streams under orthography: a factorization method", "authors": "C. Tomasi, T. Kanade", "year": 1992, "venue": "International Journal of Computer Vision 9(2), 137–154", "url": "https://doi.org/10.1007/BF00129684", "type": "research-paper" },
+      { "title": "Multiple View Geometry in Computer Vision", "authors": "R. Hartley, A. Zisserman", "year": 2000, "venue": "Cambridge University Press (2nd ed. 2004)", "url": "https://doi.org/10.1017/CBO9780511811685", "type": "book" }
+    ],
+    "media": { "type": "diagram", "diagram": "bundle", "caption": "Multiple views related by projective constraints." }
+  },
+  {
+    "id": "ibr-light-fields",
+    "year": 1996,
+    "yearLabel": "1996",
+    "title": "Image-based modelling and rendering",
+    "period": "analytical-digital",
+    "category": "computational-photography",
+    "type": "research-paper",
+    "status": "established",
+    "researchers": ["Marc Levoy", "Pat Hanrahan", "Steven Gortler", "Richard Szeliski", "Paul Debevec", "Camillo Taylor", "Jitendra Malik"],
+    "institutions": ["Stanford University", "Microsoft Research", "UC Berkeley"],
+    "summary": "Rendering new views directly from captured images, with or without explicit geometry.",
+    "context": "At SIGGRAPH 1996 three influential papers appeared: Light Field Rendering, The Lumigraph, and Façade (photogrammetric modelling of architecture plus view-dependent texture mapping).",
+    "contribution": "Reframed the goal from measuring geometry to reproducing appearance — novel-view synthesis — and showed that appearance can be represented as a sampled function of rays.",
+    "technicalExplanation": "The 4D light field L(u,v,s,t) parameterises rays between two planes; new views are slices of it. Façade fitted parametric architectural primitives to photographs by minimising reprojection error, then used view-dependent texture.",
+    "historicalSignificance": "The intellectual ancestor of neural radiance fields: NeRF is evaluated, like these methods, by how well it renders held-out views.",
+    "limitations": "Dense sampling required (light fields); manual modelling (Façade).",
+    "dates": { "invention": "1995–1996", "publication": "SIGGRAPH 1996", "adoption": "Visual effects (e.g. virtual cinematography), VR", "improvements": "Unstructured lumigraph (2001); neural rendering (2019–)" },
+    "uncertainty": "",
+    "enabledDevelopments": [
+      { "id": "nerf", "relation": "foundation" },
+      { "id": "neural-scene-representations", "relation": "foundation" }
+    ],
+    "relatedEvents": ["nerf", "photo-tourism"],
+    "references": [
+      { "title": "Light field rendering", "authors": "M. Levoy, P. Hanrahan", "year": 1996, "venue": "SIGGRAPH 1996", "url": "https://doi.org/10.1145/237170.237199", "type": "research-paper" },
+      { "title": "The lumigraph", "authors": "S. J. Gortler, R. Grzeszczuk, R. Szeliski, M. F. Cohen", "year": 1996, "venue": "SIGGRAPH 1996", "url": "https://doi.org/10.1145/237170.237200", "type": "research-paper" },
+      { "title": "Modeling and rendering architecture from photographs: a hybrid geometry- and image-based approach", "authors": "P. E. Debevec, C. J. Taylor, J. Malik", "year": 1996, "venue": "SIGGRAPH 1996", "url": "https://doi.org/10.1145/237170.237191", "type": "research-paper" }
+    ],
+    "media": { "type": "diagram", "diagram": "lightfield", "caption": "Two-plane parameterisation of rays in a light field." }
+  },
+  {
+    "id": "virtualized-reality",
+    "year": 1997,
+    "yearLabel": "1997 – 2015",
+    "title": "Multi-camera capture of dynamic scenes",
+    "period": "analytical-digital",
+    "category": "dynamic",
+    "type": "technology",
+    "status": "established",
+    "researchers": ["Takeo Kanade", "Peter Rander", "P. J. Narayanan", "Hanbyul Joo", "Yaser Sheikh"],
+    "institutions": ["Carnegie Mellon University"],
+    "summary": "Domes of synchronised cameras reconstructed moving people and events frame by frame.",
+    "context": "CMU's Virtualized Reality project (1997) used a dome of video cameras to reconstruct dynamic events. The CMU Panoptic Studio (2015) scaled to hundreds of synchronised cameras for social motion capture.",
+    "contribution": "Introduced time as a dimension of image-based reconstruction and the synchronised multi-view rig as its instrument.",
+    "technicalExplanation": "Per-frame multi-baseline stereo and volumetric merging across calibrated, genlocked cameras; later with keypoint detection and 3D trajectory reconstruction.",
+    "historicalSignificance": "The capture paradigm behind datasets used to train and evaluate dynamic NeRF and 4D Gaussian methods.",
+    "limitations": "Frame-independent reconstruction lacked temporal coherence; heavy infrastructure.",
+    "dates": { "invention": "Mid-1990s", "publication": "IEEE MultiMedia 1997; ICCV 2015", "adoption": "Volumetric video studios 2010s", "improvements": "Temporal correspondence; neural 4D representations" },
+    "uncertainty": "",
+    "enabledDevelopments": [
+      { "id": "neural-video", "relation": "enables" },
+      { "id": "dynamic-3d-gaussians", "relation": "enables" }
+    ],
+    "relatedEvents": ["neural-video", "dynamic-3d-gaussians"],
+    "references": [
+      { "title": "Virtualized reality: constructing virtual worlds from real scenes", "authors": "T. Kanade, P. Rander, P. J. Narayanan", "year": 1997, "venue": "IEEE MultiMedia 4(1), 34–47", "url": "https://doi.org/10.1109/93.580394", "type": "research-paper" },
+      { "title": "Panoptic Studio: A Massively Multiview System for Social Motion Capture", "authors": "H. Joo et al.", "year": 2015, "venue": "ICCV 2015", "url": "https://openaccess.thecvf.com/content_iccv_2015/html/Joo_Panoptic_Studio_A_ICCV_2015_paper.html", "type": "research-paper" }
+    ],
+    "media": { "type": "diagram", "diagram": "dome", "caption": "Synchronised cameras surrounding a dynamic subject." }
+  },
+  {
+    "id": "bundle-adjustment-cv",
+    "year": 1999,
+    "yearLabel": "1999",
+    "title": "Bundle Adjustment — A Modern Synthesis",
+    "period": "analytical-digital",
+    "category": "geometric-vision",
+    "type": "research-paper",
+    "status": "established",
+    "researchers": ["Bill Triggs", "Philip McLauchlan", "Richard Hartley", "Andrew Fitzgibbon"],
+    "institutions": ["INRIA", "University of Surrey", "Australian National University", "University of Oxford"],
+    "summary": "A survey that brought photogrammetric bundle adjustment, its sparsity and its gauge theory into computer vision.",
+    "context": "Presented at the 1999 Vision Algorithms workshop (ICCV), the paper explicitly acknowledged the photogrammetric literature and explained sparse solvers, robust cost functions and gauge freedom to vision researchers.",
+    "contribution": "Made bundle adjustment the accepted final step of vision reconstruction and fostered its efficient implementation.",
+    "technicalExplanation": "Levenberg–Marquardt with Schur complement on the camera block, robust M-estimators, covariance and gauge analysis, network design.",
+    "historicalSignificance": "The clearest bridge text between the two lineages; open-source solvers (SBA 2009, Ceres Solver) followed.",
+    "limitations": "",
+    "dates": { "invention": "", "publication": "Vision Algorithms '99, LNCS 1883, 2000", "adoption": "All SfM systems", "improvements": "SBA, Ceres, GPU and distributed BA" },
+    "uncertainty": "",
+    "enabledDevelopments": [
+      { "id": "photo-tourism", "relation": "enables" },
+      { "id": "colmap", "relation": "enables" }
+    ],
+    "relatedEvents": ["bundle-adjustment", "photo-tourism"],
+    "references": [
+      { "title": "Bundle Adjustment — A Modern Synthesis", "authors": "B. Triggs, P. F. McLauchlan, R. I. Hartley, A. W. Fitzgibbon", "year": 2000, "venue": "Vision Algorithms: Theory and Practice, LNCS 1883, 298–372", "url": "https://doi.org/10.1007/3-540-44480-7_21", "type": "research-paper" }
+    ],
+    "media": { "type": "diagram", "diagram": "sparsity", "caption": "Sparse block structure of the bundle adjustment normal equations." }
+  }
+]

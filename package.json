@@ -1,0 +1,14 @@
+{
+  "name": "photogrammetry-evolution",
+  "version": "1.0.0",
+  "description": "An interactive historical and scientific atlas of photogrammetry and image-based 3D reconstruction.",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "npx --yes http-server@14.1.1 . -c-1 -p 8080 -o",
+    "serve": "python3 -m http.server 8080",
+    "validate": "node scripts/validate-data.mjs"
+  },
+  "engines": { "node": ">=18" },
+  "license": "MIT"
+}

@@ -1,0 +1,211 @@
+{
+  "dimensions": [
+    { "id": "principle", "label": "Underlying principle" },
+    { "id": "representation", "label": "Representation" },
+    { "id": "input", "label": "Input & calibration" },
+    { "id": "estimation", "label": "Estimation / optimisation" },
+    { "id": "evaluation", "label": "How quality is judged" },
+    { "id": "advantages", "label": "Advantages" },
+    { "id": "limitations", "label": "Limitations" }
+  ],
+  "comparisons": [
+    {
+      "id": "analog-vs-digital",
+      "title": "Analog vs analytical vs digital photogrammetry",
+      "note": "Three ways of solving the same projective problem: by mechanism, by equation, and by algorithm on digital images.",
+      "columns": [
+        {
+          "label": "Analog", "events": ["stereoplotters-universal", "stereoautograph"],
+          "values": {
+            "principle": "Optical–mechanical re-creation of the taking rays; the instrument is the computer.",
+            "representation": "Stereoscopic model in the instrument; drawn contours and planimetry.",
+            "input": "Metric film from calibrated aerial cameras; geometry restricted by instrument design.",
+            "estimation": "Manual orientation (Gruber points), operator measurement with floating mark.",
+            "evaluation": "Residuals at control points; experience-based accuracy rules.",
+            "advantages": "Robust, direct visual control; dominant production method for decades.",
+            "limitations": "Expensive, specialised, no rigorous error propagation, limited camera types."
+          }
+        },
+        {
+          "label": "Analytical", "events": ["analytical-photogrammetry", "bundle-adjustment", "analytical-plotter"],
+          "values": {
+            "principle": "Collinearity equations solved numerically.",
+            "representation": "Coordinates of points, camera orientations with covariance.",
+            "input": "Film measured on comparators or analytical plotters; any camera with calibration.",
+            "estimation": "Least-squares bundle adjustment with self-calibration and statistical testing.",
+            "evaluation": "Precision (covariance), reliability, check points.",
+            "advantages": "Rigour; flexibility of geometry; quantified accuracy.",
+            "limitations": "Measurement still manual; computing cost in early decades."
+          }
+        },
+        {
+          "label": "Digital", "events": ["digital-photogrammetric-workstations", "image-matching", "sgm"],
+          "values": {
+            "principle": "Analytical geometry applied to digital raster images with automatic matching.",
+            "representation": "DEMs, orthophotos, dense surface models.",
+            "input": "Scanned film or digital aerial cameras; GNSS/INS orientation.",
+            "estimation": "Automatic aerial triangulation; least-squares and semi-global matching.",
+            "evaluation": "Check-point RMSE; standardised mapping accuracy classes.",
+            "advantages": "Automation of point transfer, DEM and orthophoto production.",
+            "limitations": "Matching failures on low texture; designed for structured aerial blocks."
+          }
+        }
+      ]
+    },
+    {
+      "id": "photogrammetry-vs-sfm",
+      "title": "Photogrammetric aerial triangulation vs Structure from Motion",
+      "note": "Largely the same mathematics, developed with different priorities.",
+      "columns": [
+        {
+          "label": "Aerial triangulation", "events": ["block-adjustment-production", "bundle-adjustment"],
+          "values": {
+            "principle": "Bundle adjustment of a planned image block.",
+            "representation": "Orientations, tie points, ground control in a geodetic datum.",
+            "input": "Calibrated metric cameras, designed overlap, GNSS/INS.",
+            "estimation": "Least squares with statistical outlier tests and self-calibration.",
+            "evaluation": "Precision, reliability, check points against independent ground truth.",
+            "advantages": "Metrically traceable, georeferenced, quality-controlled.",
+            "limitations": "Requires designed acquisition and control."
+          }
+        },
+        {
+          "label": "Structure from Motion", "events": ["photo-tourism", "colmap"],
+          "values": {
+            "principle": "Automatic incremental or global reconstruction from unordered images.",
+            "representation": "Sparse points and camera poses in an arbitrary frame.",
+            "input": "Any images, unknown or approximate calibration (EXIF).",
+            "estimation": "Feature matching, RANSAC, minimal solvers, repeated bundle adjustment.",
+            "evaluation": "Reprojection error, completeness, registration rate, benchmark poses.",
+            "advantages": "Fully automatic; robust to uncontrolled capture.",
+            "limitations": "Arbitrary scale/datum; systematic errors can go undetected without control."
+          }
+        }
+      ]
+    },
+    {
+      "id": "mvs-vs-nerf",
+      "title": "Multi-View Stereo vs Neural Radiance Fields",
+      "note": "Measuring surfaces versus learning a function that reproduces images.",
+      "columns": [
+        {
+          "label": "Multi-View Stereo", "events": ["pmvs", "colmap"],
+          "values": {
+            "principle": "Photo-consistency of surface points across views.",
+            "representation": "Depth maps, dense point cloud, mesh.",
+            "input": "Calibrated images with known poses.",
+            "estimation": "PatchMatch or cost-volume search; fusion; meshing.",
+            "evaluation": "Accuracy and completeness against reference geometry.",
+            "advantages": "Explicit, measurable geometry.",
+            "limitations": "Fails on specular, transparent, textureless surfaces; limited view-dependent appearance."
+          }
+        },
+        {
+          "label": "NeRF", "events": ["nerf", "mip-nerf", "instant-ngp"],
+          "values": {
+            "principle": "Differentiable volume rendering of a learned radiance field.",
+            "representation": "Continuous density and view-dependent colour (MLP or grids).",
+            "input": "Posed images (usually from COLMAP).",
+            "estimation": "Gradient descent on photometric loss.",
+            "evaluation": "Novel-view PSNR, SSIM, LPIPS.",
+            "advantages": "Photorealism, view-dependent effects, thin structures.",
+            "limitations": "Geometry implicit and not guaranteed accurate; slow rendering; per-scene training."
+          }
+        }
+      ]
+    },
+    {
+      "id": "nerf-vs-3dgs",
+      "title": "NeRF vs 3D Gaussian Splatting",
+      "note": "Implicit volumetric field versus explicit rasterised primitives.",
+      "columns": [
+        {
+          "label": "NeRF", "events": ["nerf", "instant-ngp", "mip-nerf"],
+          "values": {
+            "principle": "Ray marching through a continuous field.",
+            "representation": "Neural network or feature grids queried at sample points.",
+            "input": "Posed images; random or SfM-free initialisation.",
+            "estimation": "Stochastic optimisation of network weights.",
+            "evaluation": "Rendering metrics.",
+            "advantages": "Compact; smooth continuous field; strong anti-aliasing variants.",
+            "limitations": "Many network evaluations per pixel; slow rendering."
+          }
+        },
+        {
+          "label": "3D Gaussian Splatting", "events": ["3dgs", "splatting-geometry", "hierarchical-3dgs"],
+          "values": {
+            "principle": "Tile-based differentiable rasterisation of projected Gaussians.",
+            "representation": "Millions of explicit anisotropic Gaussians with SH colour.",
+            "input": "Posed images plus SfM sparse point cloud for initialisation.",
+            "estimation": "Gradient descent with adaptive densification and pruning.",
+            "evaluation": "Rendering metrics; increasingly geometric metrics.",
+            "advantages": "Real-time rendering; fast training; editable explicit primitives.",
+            "limitations": "Memory; aliasing/popping; Gaussians are not surfaces; floaters."
+          }
+        }
+      ]
+    },
+    {
+      "id": "optimisation-vs-feedforward",
+      "title": "Optimisation-based SfM vs feed-forward reconstruction",
+      "note": "Rigorous estimation per scene versus learned inference across scenes.",
+      "columns": [
+        {
+          "label": "COLMAP-style SfM", "events": ["colmap", "bundle-adjustment"],
+          "values": {
+            "principle": "Explicit geometry: matching, minimal solvers, bundle adjustment.",
+            "representation": "Cameras and sparse points; dense MVS optional.",
+            "input": "Images with sufficient overlap and texture.",
+            "estimation": "Non-linear least squares per scene.",
+            "evaluation": "Reprojection error, pose accuracy, registration rate.",
+            "advantages": "Accurate, interpretable, data-independent.",
+            "limitations": "Slow; fails with few views, low texture, or dynamics."
+          }
+        },
+        {
+          "label": "DUSt3R / VGGT", "events": ["dust3r", "vggt", "fast3r"],
+          "values": {
+            "principle": "Transformer regresses pointmaps and cameras directly.",
+            "representation": "Per-pixel pointmaps, depth, camera parameters, confidence.",
+            "input": "One to hundreds of images; no calibration needed.",
+            "estimation": "Single forward pass; optional BA refinement.",
+            "evaluation": "Benchmark pose and depth accuracy.",
+            "advantages": "Seconds instead of minutes–hours; works with sparse views.",
+            "limitations": "Training-data dependence; uncertainty and metric reliability still under study."
+          }
+        }
+      ]
+    },
+    {
+      "id": "deformation-vs-native4d",
+      "title": "Deformation-field vs native 4D Gaussians",
+      "note": "Two ways to put time into Gaussian representations.",
+      "columns": [
+        {
+          "label": "Canonical + deformation", "events": ["4dgs-deformation", "d-nerf"],
+          "values": {
+            "principle": "One canonical scene warped to each time by a learned field.",
+            "representation": "3D Gaussians + space–time deformation network.",
+            "input": "Multi-view or monocular video with poses.",
+            "estimation": "Joint optimisation of Gaussians and deformation.",
+            "evaluation": "Novel view-time synthesis metrics.",
+            "advantages": "Compact; implicit correspondence over time.",
+            "limitations": "Struggles with appearing/disappearing content and topology change."
+          }
+        },
+        {
+          "label": "Native 4D primitives", "events": ["4dgs-native", "dynamic-3d-gaussians"],
+          "values": {
+            "principle": "Primitives defined directly in space-time (or tracked per frame).",
+            "representation": "4D Gaussians sliced at each t, or per-frame Gaussian trajectories.",
+            "input": "Usually dense multi-view video.",
+            "estimation": "Optimisation of 4D parameters or per-timestep poses.",
+            "evaluation": "Novel view-time synthesis; tracking accuracy (trajectory methods).",
+            "advantages": "Handles transient content; explicit temporal extent.",
+            "limitations": "Memory scales with duration; correspondence not guaranteed (4D slices)."
+          }
+        }
+      ]
+    }
+  ]
+}

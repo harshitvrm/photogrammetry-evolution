@@ -1,0 +1,373 @@
+[
+  {
+    "id": "stereocomparator",
+    "year": 1901,
+    "yearLabel": "1901",
+    "title": "The stereocomparator",
+    "period": "analog-photogrammetry",
+    "category": "photogrammetry",
+    "type": "technology",
+    "status": "established",
+    "researchers": [
+      "Carl Pulfrich",
+      "Henry Georges Fourcade"
+    ],
+    "institutions": [
+      "Carl Zeiss, Jena"
+    ],
+    "summary": "An instrument for viewing a stereo pair and measuring parallax with a floating mark, making stereoscopic depth quantitative.",
+    "context": "Pulfrich presented the Zeiss stereocomparator in 1901. Fourcade in South Africa developed a comparable instrument independently in the same period.",
+    "contribution": "Replaced point identification in separate images with direct stereoscopic measurement of corresponding points via a floating mark.",
+    "technicalExplanation": "Two measuring marks, one in each image, fuse into a single mark perceived in the 3D model. The operator moves the mark until it 'sits' on the surface; the x-parallax read on the scales gives depth.",
+    "historicalSignificance": "Introduced stereophotogrammetry, which dominated mapping for the following eight decades and established the human operator as the 'matching algorithm'.",
+    "limitations": "Measured coordinates still had to be converted to object space by computation or graphics.",
+    "dates": {
+      "invention": "1901 (Pulfrich; Fourcade independently)",
+      "publication": "Pulfrich, Zeitschrift für Instrumentenkunde, 1902",
+      "adoption": "Terrestrial stereophotogrammetry from c. 1903",
+      "improvements": "Stereoautograph (1908) automated plotting"
+    },
+    "uncertainty": "Priority between Pulfrich and Fourcade is generally treated as independent simultaneous invention.",
+    "enabledDevelopments": [
+      {
+        "id": "stereoautograph",
+        "relation": "automates"
+      }
+    ],
+    "relatedEvents": [
+      "stereoscope",
+      "stereoautograph"
+    ],
+    "references": [
+      {
+        "title": "Neue stereoskopische Methoden und Apparate für die Zwecke der Astronomie, Topographie und Metronomie",
+        "authors": "Carl Pulfrich",
+        "year": 1903,
+        "venue": "Berlin: Springer",
+        "url": "",
+        "type": "primary-source"
+      },
+      {
+        "title": "On a stereoscopic method of photographic surveying",
+        "authors": "H. G. Fourcade",
+        "year": 1902,
+        "venue": "Transactions of the South African Philosophical Society 14",
+        "url": "",
+        "type": "research-paper"
+      }
+    ],
+    "media": {
+      "type": "diagram",
+      "diagram": "stereo",
+      "caption": "The floating mark: two image marks fused into one in the stereo model."
+    }
+  },
+  {
+    "id": "stereoautograph",
+    "year": 1908,
+    "yearLabel": "1908 – 1909",
+    "title": "von Orel's stereoautograph",
+    "period": "analog-photogrammetry",
+    "category": "photogrammetry",
+    "type": "technology",
+    "status": "established",
+    "researchers": [
+      "Eduard von Orel"
+    ],
+    "institutions": [
+      "Militärgeographisches Institut, Vienna",
+      "Carl Zeiss, Jena"
+    ],
+    "summary": "The first instrument to draw plan and contour lines continuously from a terrestrial stereo pair.",
+    "context": "Von Orel, an Austrian officer, built the stereoautograph in 1908; Zeiss produced it from 1909.",
+    "contribution": "Linked stereoscopic measurement mechanically to a plotting table, so that tracing the floating mark along a constant height drew a contour.",
+    "technicalExplanation": "Linkages solved the intersection geometry for horizontal (terrestrial) photographs with parallel axes, turning measured parallax into plan position and height in real time.",
+    "historicalSignificance": "Mechanised the photogrammetric computation: the first 'analog computer' of the discipline.",
+    "limitations": "Restricted to near-normal terrestrial photography; aerial tilted images required universal instruments.",
+    "dates": {
+      "invention": "1908",
+      "publication": "Instrument descriptions 1909–1911",
+      "adoption": "Alpine and military mapping, 1910s",
+      "improvements": "Universal instruments for aerial photographs (1920s)"
+    },
+    "uncertainty": "",
+    "enabledDevelopments": [
+      {
+        "id": "stereoplotters-universal",
+        "relation": "extends"
+      }
+    ],
+    "relatedEvents": [
+      "stereocomparator",
+      "stereoplotters-universal"
+    ],
+    "references": [
+      {
+        "title": "Manual of Photogrammetry (historical chapters)",
+        "authors": "American Society of Photogrammetry",
+        "year": 1944,
+        "venue": "1st ed.; later eds. 1952, 1966, 1980, 2004, 2013 (ASPRS)",
+        "url": "https://www.asprs.org/",
+        "type": "book"
+      }
+    ],
+    "media": {
+      "type": "diagram",
+      "diagram": "plotter",
+      "caption": "Mechanical linkage converting parallax to plan position and height."
+    }
+  },
+  {
+    "id": "aerial-mapping-camera",
+    "year": 1915,
+    "yearLabel": "1904 – 1920s",
+    "title": "The aerial mapping camera",
+    "period": "analog-photogrammetry",
+    "category": "imaging",
+    "type": "technology",
+    "status": "established",
+    "researchers": [
+      "Theodor Scheimpflug",
+      "Sherman Fairchild"
+    ],
+    "institutions": [],
+    "summary": "Purpose-built cameras turned aircraft into systematic mapping platforms.",
+    "context": "Scheimpflug worked on aerial survey and rectification from about 1904, including the optical condition that bears his name. Aerial photography from aircraft is recorded from 1909. The First World War drove mass aerial reconnaissance and photo-interpretation; in the 1920s, cameras such as Fairchild's with between-the-lens shutters improved geometric quality for mapping.",
+    "contribution": "Calibrated, large-format cameras with fiducial marks, flat film and overlapping strip coverage made stereo mapping of large areas routine.",
+    "technicalExplanation": "Photographs taken with ~60% forward overlap and ~20–30% side overlap form stereo models along strips; fiducials define the image coordinate system; the calibrated principal distance and distortion define interior orientation.",
+    "historicalSignificance": "Aerial photogrammetry became the method of national topographic mapping for most of the century.",
+    "limitations": "Film deformation, lens distortion and unknown exterior orientation required ground control and careful calibration.",
+    "dates": {
+      "invention": "Rectification and multi-lens cameras from c. 1904",
+      "publication": "Scheimpflug patents 1904",
+      "adoption": "Wartime reconnaissance 1914–1918; civil mapping 1920s",
+      "improvements": "Wide-angle lenses (Zeiss Topogon, Wild Aviogon, 1930s–1950s); forward-motion compensation (1980s)"
+    },
+    "uncertainty": "Dates for individual camera models vary between sources.",
+    "enabledDevelopments": [
+      {
+        "id": "stereoplotters-universal",
+        "relation": "enables"
+      },
+      {
+        "id": "analytical-photogrammetry",
+        "relation": "enables"
+      }
+    ],
+    "relatedEvents": [
+      "early-aerial-photography",
+      "stereoplotters-universal"
+    ],
+    "references": [
+      {
+        "title": "Improved method and apparatus for the systematic alteration or distortion of plane pictures and images by means of lenses and mirrors for photography and for other purposes",
+        "authors": "Theodor Scheimpflug",
+        "year": 1904,
+        "venue": "British Patent GB190401196",
+        "url": "",
+        "type": "patent"
+      }
+    ],
+    "media": {
+      "type": "diagram",
+      "diagram": "aerial",
+      "caption": "Overlapping strips of vertical photographs form stereo models."
+    }
+  },
+  {
+    "id": "isp-founding",
+    "year": 1910,
+    "yearLabel": "1910",
+    "title": "International Society for Photogrammetry",
+    "period": "analog-photogrammetry",
+    "category": "photogrammetry",
+    "type": "institution",
+    "status": "established",
+    "researchers": [
+      "Eduard Doležal"
+    ],
+    "institutions": [
+      "International Society for Photogrammetry (ISP), today ISPRS"
+    ],
+    "summary": "Photogrammetry organised itself as an international scientific discipline.",
+    "context": "Doležal founded the Österreichische Gesellschaft für Photogrammetrie and the International Society for Photogrammetry in Vienna in 1910. The first international congress was held in Vienna in 1913. The society added 'Remote Sensing' to its name in 1980 (ISPRS).",
+    "contribution": "Created the congresses, commissions and archives through which instruments, methods and standards were compared internationally.",
+    "technicalExplanation": "—",
+    "historicalSignificance": "ISPRS congresses later became the venues where analytical plotters (1976) and digital workstations (1988) were first shown widely.",
+    "limitations": "",
+    "dates": {
+      "invention": "",
+      "publication": "Founded 1910",
+      "adoption": "First congress 1913",
+      "improvements": "Renamed ISPRS 1980"
+    },
+    "uncertainty": "",
+    "enabledDevelopments": [
+      {
+        "id": "analytical-plotter",
+        "relation": "enables"
+      }
+    ],
+    "relatedEvents": [
+      "meydenbauer-architectural"
+    ],
+    "references": [
+      {
+        "title": "ISPRS — The International Society for Photogrammetry and Remote Sensing",
+        "authors": "ISPRS",
+        "year": 2024,
+        "venue": "Official website",
+        "url": "https://www.isprs.org/",
+        "type": "institutional"
+      }
+    ],
+    "media": {
+      "type": "diagram",
+      "diagram": "network",
+      "caption": "An international network of national societies."
+    }
+  },
+  {
+    "id": "kruppa-relative-orientation",
+    "year": 1913,
+    "yearLabel": "1913",
+    "title": "Kruppa's five-point relative orientation",
+    "period": "analog-photogrammetry",
+    "category": "foundations",
+    "type": "concept",
+    "status": "established",
+    "researchers": [
+      "Erwin Kruppa"
+    ],
+    "institutions": [
+      "Kaiserliche Akademie der Wissenschaften, Vienna"
+    ],
+    "summary": "Five corresponding points in two calibrated images determine their relative orientation, with a finite number of solutions.",
+    "context": "Kruppa addressed the problem posed by Finsterwalder of reconstructing an object from two perspectives with known interior orientation.",
+    "contribution": "Showed the minimal case of relative orientation: five point correspondences, with at most eleven solutions (later shown to be at most ten).",
+    "technicalExplanation": "Relative orientation has five degrees of freedom (three rotations, two baseline directions). Each correspondence gives one coplanarity condition; five points give a polynomial system.",
+    "historicalSignificance": "The theoretical basis of Nistér's practical five-point algorithm (2004), now inside essentially every calibrated SfM pipeline.",
+    "limitations": "Of theoretical interest until computers allowed numerical solution.",
+    "dates": {
+      "invention": "1913",
+      "publication": "Sitzungsberichte der Akademie der Wissenschaften, Wien, 1913",
+      "adoption": "Minimal solvers in computer vision, 1990s–2000s",
+      "improvements": "Demazure (1988) proved ten solutions; Nistér (2004) efficient algorithm"
+    },
+    "uncertainty": "",
+    "enabledDevelopments": [
+      {
+        "id": "essential-matrix",
+        "relation": "parallel"
+      },
+      {
+        "id": "photo-tourism",
+        "relation": "foundation"
+      }
+    ],
+    "relatedEvents": [
+      "finsterwalder-hauck-geometry",
+      "essential-matrix"
+    ],
+    "references": [
+      {
+        "title": "Zur Ermittlung eines Objektes aus zwei Perspektiven mit innerer Orientierung",
+        "authors": "Erwin Kruppa",
+        "year": 1913,
+        "venue": "Sitzungsberichte der Mathematisch-Naturwissenschaftlichen Klasse der Kaiserlichen Akademie der Wissenschaften 122, 1939–1948",
+        "url": "",
+        "type": "research-paper"
+      },
+      {
+        "title": "An efficient solution to the five-point relative pose problem",
+        "authors": "David Nistér",
+        "year": 2004,
+        "venue": "IEEE TPAMI 26(6), 756–770",
+        "url": "https://doi.org/10.1109/TPAMI.2004.17",
+        "type": "research-paper"
+      }
+    ],
+    "media": {
+      "type": "diagram",
+      "diagram": "epipolar",
+      "caption": "Five correspondences fix the relative orientation of two calibrated views."
+    }
+  },
+  {
+    "id": "stereoplotters-universal",
+    "year": 1923,
+    "yearLabel": "1915 – 1950s",
+    "title": "Optical–mechanical stereoplotters",
+    "period": "analog-photogrammetry",
+    "category": "photogrammetry",
+    "type": "technology",
+    "status": "established",
+    "researchers": [
+      "Max Gasser",
+      "Reinhard Hugershoff",
+      "Walther Bauersfeld",
+      "Heinrich Wild",
+      "Otto von Gruber",
+      "Umberto Nistri",
+      "Ermenegildo Santoni"
+    ],
+    "institutions": [
+      "Carl Zeiss",
+      "Wild Heerbrugg",
+      "Kern Aarau",
+      "Officine Galileo",
+      "OMI"
+    ],
+    "summary": "Universal analog instruments physically re-created the bundles of rays of two aerial photographs, producing a measurable 3D model.",
+    "context": "Gasser's double-projector (patent 1915), Hugershoff's aerocartograph (c. 1919–1921), the Zeiss Stereoplanigraph (Bauersfeld, 1923), the Wild A2 autograph (1926) and later Multiplex and Kelsh projection plotters made aerial stereo mapping a production industry. Von Gruber's procedure for relative orientation using six standard points (1924) became the operator's routine.",
+    "contribution": "Solved orientation and intersection by analogy: optical projectors or mechanical space rods reproduced the taking geometry, and their intersection traced the terrain.",
+    "technicalExplanation": "Each photograph is placed in a projector with the camera's principal distance. Relative orientation is achieved by removing y-parallax at Gruber points; absolute orientation scales and levels the model to ground control. The operator then traces planimetry and contours with the floating mark.",
+    "historicalSignificance": "For half a century, nearly all topographic maps worldwide were compiled on such instruments. Their geometry — orientation, model, control — defined how photogrammetrists thought about the problem.",
+    "limitations": "Expensive, specialised, limited to near-vertical frame imagery within the instrument's mechanical range; no rigorous error propagation.",
+    "dates": {
+      "invention": "1915 (Gasser patent) – 1920s",
+      "publication": "Von Gruber, Ferienkurs in Photogrammetrie, 1930 (orientation procedures)",
+      "adoption": "National mapping agencies 1920s–1980s",
+      "improvements": "Orthophoto devices (1950s–60s); encoders and computer-assisted plotting (1970s)"
+    },
+    "uncertainty": "Many parallel national developments; precise dates of prototypes vs production vary across sources.",
+    "enabledDevelopments": [
+      {
+        "id": "analytical-plotter",
+        "relation": "reinterprets"
+      },
+      {
+        "id": "dtm-concept",
+        "relation": "enables"
+      }
+    ],
+    "relatedEvents": [
+      "stereoautograph",
+      "aerial-mapping-camera",
+      "finsterwalder-hauck-geometry"
+    ],
+    "references": [
+      {
+        "title": "Photogrammetry: Collected Lectures and Essays (Ferienkurs in Photogrammetrie)",
+        "authors": "Otto von Gruber (ed.)",
+        "year": 1930,
+        "venue": "Stuttgart: Wittwer; English edition 1932",
+        "url": "",
+        "type": "book"
+      },
+      {
+        "title": "Manual of Photogrammetry",
+        "authors": "American Society of Photogrammetry",
+        "year": 1944,
+        "venue": "1st ed.",
+        "url": "https://www.asprs.org/",
+        "type": "book"
+      }
+    ],
+    "media": {
+      "type": "diagram",
+      "diagram": "plotter",
+      "caption": "Two projectors re-create the rays; their intersection forms the stereo model."
+    }
+  }
+]

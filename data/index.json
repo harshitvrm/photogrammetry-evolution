@@ -1,0 +1,250 @@
+{
+  "title": "The Evolution of Photogrammetry",
+  "subtitle": "An interactive historical and scientific atlas of image-based 3D reconstruction",
+  "centralQuestion": "How did we move from measuring space using photographs to reconstructing dynamic three-dimensional reality?",
+  "thesis": "From measuring the physical world through photographs to reconstructing, representing, and experiencing the physical world in space and time.",
+  "eventFiles": [
+    "data/events/p1-foundations.json",
+    "data/events/p2-birth.json",
+    "data/events/p3-analog.json",
+    "data/events/p4-analytical-digital.json",
+    "data/events/p5-automated.json",
+    "data/events/p6-neural-dynamic.json"
+  ],
+  "periods": [
+    {
+      "id": "geometric-foundations",
+      "number": 1,
+      "label": "Geometric Foundations",
+      "range": "Before 1850",
+      "start": -500,
+      "end": 1850,
+      "question": "How can a three-dimensional world be described by a two-dimensional image?",
+      "intro": "Long before photography, optics and geometry established the model that every later reconstruction method relies on: a picture is a central projection of space through a single point. Perspective constructions, projective geometry, the inverse problem of perspective and the method of least squares were all in place before the first photograph could be measured.",
+      "short": "Foundations"
+    },
+    {
+      "id": "birth-of-photogrammetry",
+      "number": 2,
+      "label": "The Birth of Photogrammetry",
+      "range": "1850–1900",
+      "start": 1850,
+      "end": 1900,
+      "question": "Can a photograph replace the surveyor's plane table?",
+      "intro": "Photography made the central projection physically repeatable. Military engineers, architects and surveyors in France, Prussia, Canada and the Alps treated photographs as measured perspective drawings, intersecting rays graphically from known stations to map terrain and document buildings.",
+      "short": "Birth"
+    },
+    {
+      "id": "analog-photogrammetry",
+      "number": 3,
+      "label": "Analog Photogrammetry",
+      "range": "1900–1960",
+      "start": 1900,
+      "end": 1960,
+      "question": "Can the geometry of two photographs be rebuilt optically and measured continuously?",
+      "intro": "Stereoscopic viewing turned pairs of photographs into measurable spatial models. Optical–mechanical instruments physically re-created the bundles of rays of the taking cameras, so that an operator could trace contours in a floating three-dimensional model. Aircraft made photogrammetry the dominant method of national mapping.",
+      "short": "Analog"
+    },
+    {
+      "id": "analytical-digital",
+      "number": 4,
+      "label": "Analytical & Digital Photogrammetry",
+      "range": "1950–2000",
+      "start": 1950,
+      "end": 2000,
+      "question": "Can the instrument be replaced by equations, and the operator by an algorithm?",
+      "intro": "Electronic computers allowed the projective relationship to be written as equations and solved rigorously by least squares. The collinearity equations, bundle adjustment and self-calibration made photogrammetry a statistical estimation discipline. In parallel, computer vision emerged with different goals — perception and automation — and rediscovered much of the same geometry. Digital images and image matching began to automate measurement.",
+      "short": "Analytical & digital"
+    },
+    {
+      "id": "automated-reconstruction",
+      "number": 5,
+      "label": "Automated 3D Reconstruction",
+      "range": "2000–2019",
+      "start": 2000,
+      "end": 2020,
+      "question": "Can unordered photographs be turned into 3D models without human intervention?",
+      "intro": "Invariant local features, robust estimation and scalable bundle adjustment made Structure from Motion fully automatic. Dense Multi-View Stereo and surface reconstruction turned images into detailed point clouds and meshes. Open-source pipelines and consumer cameras carried these methods back into surveying, heritage and the geosciences — the computer-vision and photogrammetric lineages converged in practice.",
+      "short": "Automated 3D"
+    },
+    {
+      "id": "neural-dynamic",
+      "number": 6,
+      "label": "Neural & Dynamic Scene Reconstruction",
+      "range": "2020–present",
+      "start": 2020,
+      "end": 2027,
+      "question": "Should a scene be represented by measured geometry, by a learned function, or by differentiable primitives — and how does it change over time?",
+      "intro": "Differentiable rendering shifted the objective from measuring points to reproducing images. Neural Radiance Fields optimise a continuous volumetric function; 3D Gaussian Splatting replaces it with explicit, rasterisable primitives. Time became a dimension of the representation, and large transformers began to predict geometry directly from images. These methods are not photogrammetry in the classical, metrological sense, but they inherit its camera models, its calibration and, very often, its Structure-from-Motion initialisation.",
+      "short": "Neural & dynamic"
+    }
+  ],
+  "threads": [
+    {
+      "id": "nerf",
+      "label": "A · Neural radiance fields"
+    },
+    {
+      "id": "gaussian",
+      "label": "B · Gaussian splatting"
+    },
+    {
+      "id": "dynamic",
+      "label": "C · Dynamic reconstruction"
+    },
+    {
+      "id": "feed-forward",
+      "label": "D · Feed-forward reconstruction"
+    },
+    {
+      "id": "spatial",
+      "label": "E · Spatial & world representations"
+    }
+  ],
+  "disciplines": [
+    {
+      "id": "foundations",
+      "label": "Geometry, optics & estimation",
+      "color": "#6E6A5E"
+    },
+    {
+      "id": "imaging",
+      "label": "Imaging & capture",
+      "color": "#8A7A52"
+    },
+    {
+      "id": "photogrammetry",
+      "label": "Photogrammetry",
+      "color": "#203F3A"
+    },
+    {
+      "id": "geometric-vision",
+      "label": "Geometric computer vision",
+      "color": "#3F6B60"
+    },
+    {
+      "id": "dense",
+      "label": "Dense matching & surfaces",
+      "color": "#5D7F86"
+    },
+    {
+      "id": "computational-photography",
+      "label": "Computational photography & IBR",
+      "color": "#7C6A86"
+    },
+    {
+      "id": "realtime",
+      "label": "Real-time mapping & SLAM",
+      "color": "#4B5F7A"
+    },
+    {
+      "id": "neural-rendering",
+      "label": "Volumetric & neural rendering",
+      "color": "#A2553A"
+    },
+    {
+      "id": "point-based",
+      "label": "Point-based & Gaussian representations",
+      "color": "#C76B45"
+    },
+    {
+      "id": "dynamic",
+      "label": "Dynamic / 4D representations",
+      "color": "#9C3D54"
+    },
+    {
+      "id": "learned-geometry",
+      "label": "Learned depth & multi-view transformers",
+      "color": "#57724A"
+    },
+    {
+      "id": "world-models",
+      "label": "Spatial intelligence & world models",
+      "color": "#8C8C8C"
+    }
+  ],
+  "types": [
+    {
+      "id": "concept",
+      "label": "Concept / theory",
+      "shape": "diamond"
+    },
+    {
+      "id": "method",
+      "label": "Method / practice",
+      "shape": "square"
+    },
+    {
+      "id": "algorithm",
+      "label": "Algorithm",
+      "shape": "circle"
+    },
+    {
+      "id": "research-paper",
+      "label": "Research paper",
+      "shape": "circle-ring"
+    },
+    {
+      "id": "technology",
+      "label": "Technology / instrument",
+      "shape": "triangle"
+    },
+    {
+      "id": "institution",
+      "label": "Institution",
+      "shape": "hexagon"
+    }
+  ],
+  "relations": [
+    {
+      "id": "foundation",
+      "label": "provides foundation for"
+    },
+    {
+      "id": "extends",
+      "label": "extends / improves"
+    },
+    {
+      "id": "automates",
+      "label": "automates / mechanises"
+    },
+    {
+      "id": "reinterprets",
+      "label": "reinterprets / reformulates"
+    },
+    {
+      "id": "enables",
+      "label": "enables in practice"
+    },
+    {
+      "id": "parallel",
+      "label": "parallel rediscovery / convergence"
+    }
+  ],
+  "openQuestions": [
+    {
+      "title": "Metric accuracy versus visual fidelity",
+      "text": "Neural and Gaussian representations are optimised for photometric agreement with input images. Classical photogrammetry is defined by quantified geometric precision and reliability. How to attach rigorous uncertainty, error propagation and check-point accuracy to radiance-field and splatting reconstructions remains largely open."
+    },
+    {
+      "title": "Geometry that is consistent, not just plausible",
+      "text": "Learned priors produce convincing geometry in unobserved regions. Distinguishing measured structure from hallucinated structure — and reporting it to the user — is a scientific and ethical problem for heritage, engineering and forensic applications."
+    },
+    {
+      "title": "Dynamic scenes from sparse observation",
+      "text": "4D reconstruction from few cameras or a single moving camera is fundamentally ill-posed: motion and geometry are entangled. Current methods rely on priors (depth, tracking, flow) whose failure modes are poorly understood."
+    },
+    {
+      "title": "Scale, persistence and updating",
+      "text": "City- and planet-scale reconstruction requires representations that can be streamed, updated incrementally and merged across time. Classical mapping solved versioning for vector maps; an equivalent for neural and Gaussian scene representations does not yet exist."
+    },
+    {
+      "title": "Feed-forward versus optimisation",
+      "text": "Transformer models predict cameras and geometry in seconds, but their accuracy, generalisation and calibration on out-of-distribution imagery are still benchmarked against optimisation-based bundle adjustment. Whether learned inference replaces, initialises or merely accelerates rigorous estimation is unresolved."
+    },
+    {
+      "title": "From appearance to physics and semantics",
+      "text": "World models and physics-informed reconstructions aim to predict how scenes behave, not only how they look. Linking reconstructed geometry to material, dynamics and meaning connects photogrammetry to robotics and simulation in ways the field has only begun to formalise."
+    }
+  ]
+}

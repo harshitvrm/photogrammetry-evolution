@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Evolution of Photogrammetry — An Atlas of Image-Based 3D Reconstruction</title>
+  <meta name="description" content="An interactive historical and scientific timeline of photogrammetry and image-based 3D reconstruction, from perspective geometry to 4D Gaussian splatting.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23203F3A'/%3E%3Cpath d='M6 24 L16 8 L26 24' fill='none' stroke='%23F4F2EC' stroke-width='2'/%3E%3Ccircle cx='16' cy='8' r='2.5' fill='%23C76B45'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="#/timeline" aria-label="The Evolution of Photogrammetry — home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32"><path d="M5 25 L16 7 L27 25" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M9 25 L16 7 M23 25 L16 7" fill="none" stroke="currentColor" stroke-width=".7" opacity=".6"/><circle cx="16" cy="7" r="2.4" fill="var(--accent)"/></svg>
+        </span>
+        <span class="brand-text">
+          <span class="brand-title">The Evolution of Photogrammetry</span>
+          <span class="brand-sub">An atlas of image-based 3D reconstruction</span>
+        </span>
+      </a>
+      <nav class="main-nav" aria-label="Views">
+        <a href="#/timeline" data-view="timeline">Timeline</a>
+        <a href="#/lineage" data-view="lineage">Lineage map</a>
+        <a href="#/technology" data-view="technology">Technology</a>
+        <a href="#/compare" data-view="compare">Compare</a>
+        <a href="#/about" data-view="about">About</a>
+      </nav>
+      <div class="search" role="search">
+        <label for="search-input" class="visually-hidden">Search milestones, people, papers and methods</label>
+        <input id="search-input" type="search" placeholder="Search people, papers, methods…" autocomplete="off" aria-controls="search-results" aria-expanded="false">
+        <kbd class="search-kbd" aria-hidden="true">/</kbd>
+        <ul id="search-results" class="search-results" role="listbox" hidden></ul>
+      </div>
+    </div>
+    <div class="filter-bar" id="filter-bar">
+      <div class="filter-inner">
+        <div class="filter-group" role="group" aria-label="Filter by period" id="period-filters"></div>
+        <div class="filter-actions">
+          <button type="button" class="btn-text" id="discipline-toggle" aria-expanded="false" aria-controls="discipline-panel">Disciplines <span id="discipline-count"></span></button>
+          <div class="status-toggle" role="group" aria-label="Filter by status" id="status-filters">
+            <button type="button" data-status="all" aria-pressed="true">All</button>
+            <button type="button" data-status="established" aria-pressed="false">Established</button>
+            <button type="button" data-status="emerging" aria-pressed="false">Emerging</button>
+          </div>
+          <button type="button" class="btn-text" id="filter-reset">Reset</button>
+          <span class="filter-count" id="filter-count" aria-live="polite"></span>
+        </div>
+      </div>
+      <div class="discipline-panel" id="discipline-panel" hidden>
+        <div class="filter-inner discipline-grid" id="discipline-filters" role="group" aria-label="Filter by research discipline"></div>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <section class="view" id="view-timeline" data-view="timeline" aria-label="Historical timeline"></section>
+    <section class="view" id="view-lineage" data-view="lineage" aria-label="Research lineage map" hidden></section>
+    <section class="view" id="view-technology" data-view="technology" aria-label="Technological evolution" hidden></section>
+    <section class="view" id="view-compare" data-view="compare" aria-label="Comparisons" hidden></section>
+    <section class="view" id="view-about" data-view="about" aria-label="About this atlas" hidden></section>
+    <div class="loading" id="loading">Loading the atlas…</div>
+  </main>
+
+  <aside class="drawer" id="drawer" aria-hidden="true" aria-labelledby="drawer-title" role="dialog">
+    <div class="drawer-scrim" data-close></div>
+    <div class="drawer-panel" tabindex="-1">
+      <div class="drawer-bar">
+        <div class="drawer-nav">
+          <button type="button" class="icon-btn" id="drawer-prev" aria-label="Previous milestone">&larr;</button>
+          <button type="button" class="icon-btn" id="drawer-next" aria-label="Next milestone">&rarr;</button>
+        </div>
+        <button type="button" class="icon-btn" data-close aria-label="Close details">&times;</button>
+      </div>
+      <div class="drawer-content" id="drawer-content"></div>
+    </div>
+  </aside>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p>“From measuring the physical world through photographs to reconstructing, representing, and experiencing the physical world in space and time.”</p>
+      <p class="muted">Content is a curated research database with primary references. Diagrams are original schematics. See <a href="#/about">About</a> for sources, dating conventions and how to contribute.</p>
+    </div>
+  </footer>
+
+  <script src="vendor/d3.v7.9.0.min.js"></script>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
