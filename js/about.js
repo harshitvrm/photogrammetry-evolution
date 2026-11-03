@@ -34,6 +34,18 @@ export function renderAbout() {
           <p>References prioritise original papers, historical primary works, ISPRS and ASPRS literature, DOI-linked publications, official project pages and arXiv preprints. For pre-1900 works, bibliographic citations are given even where no stable online copy exists. Links were selected for stability (DOIs, arXiv, official repositories), but readers should verify bibliographic details against the primary source before citing them in scholarly work.</p>
           <p>Diagrams are original schematic drawings made for this atlas, so no third-party image rights are involved. Historical photographs can be added through the <code>media</code> field with explicit licence and attribution.</p>
 
+          <p>To add a milestone, append an object to the relevant file in <code>data/events/</code> and run <code>npm run validate</code> to check identifiers, links and required fields.</p>
+        </div>
+        <aside class="about-side">
+          <h3>Database at a glance</h3>
+          <table class="stat-table"><tbody>
+            <tr><td>Milestones</td><td>${events.length}</td></tr>
+            <tr><td>Established / emerging</td><td>${events.filter(e => e.status !== 'emerging').length} / ${events.filter(e => e.status === 'emerging').length}</td></tr>
+            <tr><td>Lineage links</td><td>${events.reduce((n, e) => n + e.enabledDevelopments.length, 0)}</td></tr>
+            <tr><td>References</td><td>${refCount}</td></tr>
+            <tr><td>References with online link</td><td>${linked}</td></tr>
+            ${periods.map(p => `<tr><td>${p.number}. ${h(p.label)}</td><td>${events.filter(e => e.period === p.id).length}</td></tr>`).join('')}
+        </aside>
       </div>
     </div>`;
 }
