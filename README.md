@@ -17,13 +17,13 @@
 
 Global features: full-text search (title, people, institutions, reference titles, technical text; press `/`), period / discipline / status filters, a detail drawer with dating table (invention · first publication · adoption · improvements), uncertainty notes, incoming and outgoing lineage, related events and references, prev/next navigation and deep links.
 
-## Author and licences
+## Author and licence
 
 Created by **Harshit**, with development and drafting assistance from Claude (AI).
 
-- **Content** (text, data in `data/`, comparisons, diagrams): [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). See `LICENSE-CONTENT`.
-- **Code**: MIT. See `LICENSE`.
-- **D3.js** (in `vendor/`): ISC licence, © Mike Bostock. See `vendor/d3.LICENSE.txt`.
+This project, code and content, is licensed under [CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/): you may share it unmodified with attribution, but not for commercial purposes or as modified versions. See `LICENSE`. For other uses, please get in touch.
+
+D3.js (in `vendor/`) remains under its own ISC licence, © Mike Bostock.
 
 ### How to cite
 Harshit (2026). *The Evolution of Photogrammetry: An Interactive Atlas of Image-Based 3D Reconstruction.* https://harshitvrm.github.io/photogrammetry-evolution/
