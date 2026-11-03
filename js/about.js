@@ -33,7 +33,7 @@ export function renderAbout() {
           <h2>Sources and verification</h2>
           <p>References prioritise original papers, historical primary works, ISPRS and ASPRS literature, DOI-linked publications, official project pages and arXiv preprints. For pre-1900 works, bibliographic citations are given even where no stable online copy exists. Links were selected for stability (DOIs, arXiv, official repositories), but readers should verify bibliographic details against the primary source before citing them in scholarly work.</p>
           <p>Diagrams are original schematic drawings made for this atlas, so no third-party image rights are involved. Historical photographs can be added through the <code>media</code> field with explicit licence and attribution.</p>
-
+/*
           <h2>Data model</h2>
           <p>All content lives in <code>data/</code>, separate from presentation code. The timeline, lineage map, search and comparison views read the same event database. Each event follows this schema:</p>
 <pre>{
@@ -58,6 +58,8 @@ export function renderAbout() {
 }</pre>
           <p>To add a milestone, append an object to the relevant file in <code>data/events/</code> and run <code>npm run validate</code> to check identifiers, links and required fields.</p>
         </div>
+
+*/
         <aside class="about-side">
           <h3>Database at a glance</h3>
           <table class="stat-table"><tbody>
