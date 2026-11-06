@@ -19,7 +19,7 @@ Global features: full-text search (title, people, institutions, reference titles
 
 ## Author and licence
 
-Created by **Harshit**, under the guidance of **Prof. Kamal jain** with development and drafting assistance from Claude (AI).
+Created by **Harshit**, under the guidance of **Prof. Kamal jain** with development assistance from Claude (AI).
 
 This project, code and content, is licensed under [CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/): you may share it unmodified with attribution, but not for commercial purposes or as modified versions. See `LICENSE`. For other uses, please get in touch.
 
