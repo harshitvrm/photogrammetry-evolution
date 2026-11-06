@@ -32,7 +32,8 @@ export function renderAbout() {
 
           <h2>Sources and verification</h2>
           <p>References prioritise original papers, historical primary works, ISPRS and ASPRS literature, DOI-linked publications, official project pages and arXiv preprints. For pre-1900 works, bibliographic citations are given even where no stable online copy exists. Links were selected for stability (DOIs, arXiv, official repositories), but readers should verify bibliographic details against the primary source before citing them in scholarly work.</p>
-          <p>Diagrams are original schematic drawings made for this atlas, so no third-party image rights are involved. Historical photographs can be added through the <code>media</code> field with explicit licence and attribution.</p>
+          <p>Diagrams are original schematic drawings made for this atlas, so no third-party image rights are involved.</p>
+          <p>Please cite as: Harshit & Kamal Jain (2026). *The Evolution of Photogrammetry: An Interactive Atlas of Image-Based 3D Reconstruction.* https://harshitvrm.github.io/photogrammetry-evolution/ </p>
 
         </div>
         <aside class="about-side">
