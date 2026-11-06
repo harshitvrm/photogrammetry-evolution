@@ -31,9 +31,11 @@ export function renderAbout() {
           <p>Where priority is disputed or dates vary between sources, the record says so in a highlighted <em>historical uncertainty</em> note. Milestones from roughly 2024 onward whose long-term significance is not yet settled are tagged <strong>emerging</strong> and drawn with dashed outlines; they can be hidden with the status filter.</p>
 
           <h2>Sources and verification</h2>
-          <p>References prioritise original papers, historical primary works, ISPRS and ASPRS literature, DOI-linked publications, official project pages and arXiv preprints. For pre-1900 works, bibliographic citations are given even where no stable online copy exists. Links were selected for stability (DOIs, arXiv, official repositories), but readers should verify bibliographic details against the primary source before citing them in scholarly work.</p>
-          <p>Diagrams are original schematic drawings made for this atlas, so no third-party image rights are involved.</p>
-          <p>Please cite as: Harshit & Kamal Jain (2026). *The Evolution of Photogrammetry: An Interactive Atlas of Image-Based 3D Reconstruction.* https://harshitvrm.github.io/photogrammetry-evolution/ </p>
+          <p>This atlas draws primarily on original research papers, historical primary sources, publications from ISPRS and ASPRS, DOI-indexed scholarly literature, official project documentation, and relevant arXiv preprints. Where possible, references link directly to authoritative and persistent sources, including DOI records, institutional repositories, arXiv, and official project websites.</p>
+          <p>For historical works published before 1900, full bibliographic references are provided even when a stable or openly accessible digital copy is unavailable. Although links have been selected with long-term accessibility and source reliability in mind, readers are encouraged to consult the original publications and verify bibliographic details before using these references in formal academic work.</p>
+          <p>All diagrams and illustrations in this atlas are original schematic visualisations created specifically for this project. They are intended to explain historical developments, technical concepts, and methodological transitions in photogrammetry, rather than reproduce third-party copyrighted imagery.</p>
+          <h3>Suggested citation</h3>
+          <p>Harshit & Kamal Jain (2026). The Evolution of Photogrammetry: An Interactive Atlas of Image-Based 3D Reconstruction. Available at: https://harshitvrm.github.io/photogrammetry-evolution/ </p>
 
         </div>
         <aside class="about-side">
