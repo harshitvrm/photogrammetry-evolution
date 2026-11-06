@@ -19,14 +19,14 @@ Global features: full-text search (title, people, institutions, reference titles
 
 ## Author and licence
 
-Created by **Harshit**, with development and drafting assistance from Claude (AI).
+Created by **Harshit**, under the guidance of **Prof. Kamal jain** with development and drafting assistance from Claude (AI).
 
 This project, code and content, is licensed under [CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/): you may share it unmodified with attribution, but not for commercial purposes or as modified versions. See `LICENSE`. For other uses, please get in touch.
 
 D3.js (in `vendor/`) remains under its own ISC licence, © Mike Bostock.
 
 ### How to cite
-Harshit (2026). *The Evolution of Photogrammetry: An Interactive Atlas of Image-Based 3D Reconstruction.* https://harshitvrm.github.io/photogrammetry-evolution/
+Harshit & Kamal Jain (2026). *The Evolution of Photogrammetry: An Interactive Atlas of Image-Based 3D Reconstruction.* https://harshitvrm.github.io/photogrammetry-evolution/
 
 Corrections and suggestions are welcome via GitHub [Issues](https://github.com/harshitvrm/photogrammetry-evolution/issues).
 
